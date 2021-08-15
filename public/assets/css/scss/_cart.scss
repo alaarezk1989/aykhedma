@@ -1,0 +1,202 @@
+.box-chose {
+  height: 72px;
+  margin-bottom: 55px;
+height: 100%;
+  h2 {
+    padding-top: 38px;
+    font-size: 25px;
+    color: #D84861 !important;
+    margin-top: 38px;
+  }
+
+.head-p{
+  padding-top: 33px;
+  padding-bottom: 15px;
+  color: #13A651 !important;
+  font-size: 22px !important;
+}
+  .mydropdown {
+    // border-radius: 5px;
+    border-top: 2px solid #ccc;
+    border-bottom: 2px solid #ccc;
+    border-right: 2px solid #ccc;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+    display: inline-block;
+    position: relative;
+    width: 350px;
+
+    .logo-markit {
+      display: inline-block;
+      width: 84px;
+      height: 65px;
+      margin-top: 11px;
+      margin-left: 20px;
+    }
+
+    h3 {
+      display: inline-block !important;
+      padding-bottom: 0 !important;
+      font-size: 15px !important;
+    }
+
+    .count-prodcts {
+      padding-right: 98px !important;
+      font-size: 15px !important;
+      margin-top: -14px;
+    }
+
+    .click {
+      position: absolute;
+      top: -2px;
+      left: -70px;
+      width: 70px;
+      height: 104%;
+      cursor: pointer;
+      border-top: 2px solid #ccc;
+      border-bottom: 2px solid #ccc;
+      border-left: 2px solid #ccc;
+      border-right: 2px solid #ccc;
+      border-bottom-left-radius: 5px;
+      border-top-left-radius: 5px;
+
+      img {
+        position: absolute;
+        left: 22px;
+        top: 30%;
+      }
+    }
+
+    .dropdown-content {
+      display: none;
+      list-style: none;
+      background-color: #fff;
+      height: auto;
+      position: absolute;
+      top: 106px;
+      right: -355px;
+      width: 426px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.16);
+      z-index: 9999;
+      li {
+        text-align: center;
+        padding: 15px;
+        &:hover{
+          background-color: #eee;
+        }
+      }
+    }
+  }
+}
+
+// .click:hover .dropdown-content {
+//   display: block;
+// }
+
+.cart {
+  margin-top: 40px;
+
+  .cart-shoping {
+    padding-right: 15px;
+    padding-left: 15px;
+    border-radius: 5px;
+    -moz-box-shadow: 0 0 3px rgba(0,0,0,.16);
+    -webkit-box-shadow: 0 0 3px rgba(0,0,0,.16);
+    -o-box-shadow: 0 0 3px rgba(0,0,0,.16);
+    -ms-box-shadow: 0 0 3px rgba(0,0,0,.16);
+    box-shadow: 0 0 3px rgba(0,0,0,.16);
+
+    h2 {
+      font-size: $font21;
+      color: $color2;
+    }
+
+    table td,
+    table th {
+      border: none;
+    }
+
+    .table {
+      tr {
+        border-top: 1px solid rgba(0,0,0,.1);
+      }
+
+      thead {
+        border-bottom: 1px solid rgba(0,0,0,.1);
+
+        .head {
+          color: $color3;
+        }
+      }
+
+      th {
+        position: relative;
+
+        .img-100 {
+          width: 100px;
+          height: 100px;
+        }
+
+        .lorem {
+          display: inline-block;
+          padding-right: 10px;
+
+          p {
+            display: inline;
+            font-size: 15px;
+          }
+
+          span {
+            padding-top: 10px;
+            display: block;
+          }
+        }
+      }
+
+      .number-counter {
+        input {
+          width: 20%;
+          border: 0;
+          color: $color6;
+        }
+
+        span {
+          font-size: $font21;
+          color: $color6;
+          cursor: pointer;
+        }
+      }
+    }
+
+    .price {
+      color: $color1;
+      font-size: $font18;
+    }
+  }
+}
+
+.count-rquset {
+  h2 {
+    font-size: $font21;
+  }
+
+  td {
+    border: none;
+  }
+
+  .gray {
+    color: $color3;
+  }
+
+  .yellow {
+    color: $color4;
+    border-top: 1px solid$color4;
+  }
+
+  .btn-push {
+    @extend %btn-style1;
+    font-size: $font20;
+    line-height: 40px;
+    font-weight: normal;
+  }
+}

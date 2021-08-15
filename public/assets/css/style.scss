@@ -1,0 +1,92 @@
+/*
+Theme Name : AY KHEDMA
+Theme Coder : Ali
+Strat Date : 20/9/2018
+End Date : 26/9/2018
+*/
+
+// IMPORT FILS SCSS
+@import 'scss/vars';
+@import 'scss/component';
+
+/*IMPORT FONT*/
+@font-face {
+    font-family: 'Hacen';
+    src: url('../fonts/Hacen Saudi Arabia.ttf') format('truetype');
+    font-style: normal;
+    font-weight: normal;
+}
+
+body {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    direction: rtl;
+    font-family: Hacen;
+    text-align: right;
+    position: relative;
+}
+
+a {
+    outline: none;
+
+    &:hover {
+        outline: none;
+        text-decoration: none;
+    }
+}
+
+/*Start Nave*/
+@import 'scss/nav';
+/***********/
+/*Start headr*/
+@import 'scss/headr';
+/**********/
+
+/*Start Home*/
+@import 'scss/home';
+/************/
+
+/*Start Nave*/
+@import 'scss/footer';
+/************/
+/*Start page stor*/
+@import 'scss/store';
+/*********/
+/*Start page stor2*/
+@import 'scss/store2';
+/*********/
+/*Start page stor detils*/
+@import 'scss/store-detils';
+/*********/
+/*Start page stor rate*/
+@import 'scss/store-rate';
+/*********/
+
+/*Start page Control panel */
+@import 'scss/controlPanal';
+/***************/
+
+/*Start page Cart */
+@import 'scss/cart';
+/*************/
+
+/*Start Page delvir*/
+@import 'scss/delvir';
+/***********/
+
+/*Start PAge Status*/
+@import 'scss/stat';
+/*****************/
+/*Start Page Item Ditels */
+@import 'scss/itemdeitils';
+/***********/
+/*Start Page User Ditels*/
+@import 'scss/userdetils';
+/******************/
+
+/*Start Login page*/
+@import 'scss/loginpage';
+/***********************/

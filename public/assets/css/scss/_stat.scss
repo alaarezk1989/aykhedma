@@ -1,0 +1,34 @@
+.orderstat{
+    margin-top: 80px;
+    img{
+        margin-bottom: 30px;
+    }
+    h2{
+        color: $color2;
+        font-weight: normal;
+        font-size: $font24;
+        margin-bottom: 39px;
+    }
+    .btn{
+        background-color: $color1;
+        color: #fff;
+        font-size: $font21;
+    }
+}
+.orderstaterror{
+    margin-top: 80px;
+    img{
+        margin-bottom: 30px;
+    }
+    h2{
+        color: $color5;
+        font-weight: normal;
+        font-size: $font24;
+        margin-bottom: 39px;
+    }
+    .btn{
+        background-color: $color5;
+        color: #fff !important;
+        font-size: $font21;
+    }
+}

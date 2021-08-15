@@ -1,0 +1,83 @@
+.loginpage{
+  padding-top: 100px;
+
+  h1{
+    color: $color2;
+      margin-bottom: 70px;
+  }
+  input{
+    &:first-of-type{
+      margin-bottom: 20px;
+    }
+    @extend %input-style;
+  }
+  a{
+    color: $color2;
+    cursor: pointer;
+    &:hover{
+      color: $color2;
+    }
+  }
+  .btn{
+    margin-top: 20px;
+    @extend %btn-style1;
+  }
+  h4 {
+      color: $color3;
+      margin-top: 14px;
+
+      &:after {
+          content: '';
+          position: absolute;
+          width: 43%;
+          height: 1px;
+          background-color: #ccc;
+          top: 29px;
+          right: 5px;
+      }
+
+      &:before {
+          content: '';
+          position: absolute;
+          width: 43%;
+          height: 1px;
+          background-color: #ccc;
+          top: 29px;
+          left: 5px;
+      }
+  }
+  .check {
+      height: 40px;
+      border: 1px solid $color2;
+      border-radius: 5px;
+      span {
+          display: inline-block;
+          position: absolute;
+          top: 10px;
+          right: 80px;
+      }
+  }
+}
+
+.userditels{
+  .check{
+    width: 100%;
+      cursor: pointer;
+    input{
+      display: none;
+
+    }
+    span{
+      border: 1px solid #eee;
+      width: 100%;
+      display: block;
+      text-align: center;
+      padding: 10px;
+    }
+     input:checked + span {
+      background-color: #AB96DF;
+      color: #fff;
+
+    }
+  }
+}

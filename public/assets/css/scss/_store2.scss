@@ -1,0 +1,219 @@
+.sec5 {
+    position: relative;
+
+    img {
+        width: 100%;
+        height: 400px;
+    }
+
+    .sec5-info {
+        position: absolute;
+        top: 60px;
+        right: auto;
+        left: auto;
+        width: 100%;
+        text-align: center;
+        color: #fff;
+
+        .img-sec5 {
+            width: 160px;
+            height: 160px;
+            display: block;
+            margin-right: auto;
+            margin-left: auto;
+            margin-bottom: 15px;
+        }
+
+        h2 {
+            font-size: $font21;
+        }
+
+        span,
+        p {
+            font-size: $font16;
+        }
+    }
+}
+
+.tabs {
+    margin-top: 30px;
+    margin-bottom: 30px;
+
+    a {
+        width: 100%;
+        display: block;
+        height: 48px;
+        line-height: 48px;
+        padding-right: 15px;
+        border-radius: 5px;
+        @extend %shadw;
+        margin-bottom: 15px;
+
+        img {
+            margin-left: 30%;
+        }
+
+        span {
+            color: #fff;
+            font-size: 16px;
+        }
+    }
+
+    .tab1 {
+        border: 3px solid $color1;
+
+        span {
+            color: $color1;
+            font-weight: bold;
+
+        }
+    }
+
+    .tab2 {
+        border: 3px solid $color6;
+
+        span {
+            color: $color6;
+            font-weight: bold;
+
+        }
+    }
+
+    .tab3 {
+        border: 3px solid #FCC05A;
+
+        span {
+            color: #FCC05A;
+            font-weight: bold;
+
+        }
+    }
+
+    .tab4 {
+        border: 3px solid #F58B8B;
+
+        span {
+            color: #F58B8B;
+            font-weight: bold;
+
+        }
+    }
+
+    .active1 {
+        background-color: $color1;
+
+        span {
+            color: #fff;
+        }
+    }
+
+    .active2 {
+        background-color: $color6;
+
+        span {
+            color: #fff;
+        }
+    }
+
+    .active3 {
+        background-color: #FCC05A;
+
+        span {
+            color: #fff;
+        }
+    }
+    .active4{
+        background-color:#F58B8B;
+        span {
+            color: #fff;
+        }
+    }
+}
+
+.sec6 {
+    .filter2 {
+        @extend %filter;
+        label{
+            width: 100%;
+            position: relative;
+            margin-bottom: 18px;
+            @extend %select-box;
+            cursor: pointer;
+        
+        }
+    }
+
+    .box-sec6 {
+        height: 300px;
+        @extend %shadw;
+        margin-bottom: 23px;
+        position: relative;
+        overflow: hidden;
+        @extend %trans;
+        border-radius: 5px;
+
+        .img-info {
+            width: 100%;
+            height: 100%;
+        }
+
+        .box-overlay {
+            background-color: #FFF;
+            opacity: .9;
+            padding-top: 18px;
+            padding-right: 18px;
+            width: 100%;
+            position: absolute;
+            bottom: -83px;
+            @extend %trans;
+
+            h2 {
+                font-size: $font21;
+                margin-bottom: 10px;
+            }
+
+            span {
+                color: $color3;
+            }
+
+            h3 {
+                display: inline;
+                position: relative;
+                top: 15px;
+                color: $color1;
+            }
+
+            small {
+                float: right;
+                margin-top: 23px;
+                font-size: $font17;
+                color: $color1;
+            }
+
+            .span-info {
+                display: inline-block;
+                margin-top: 20px;
+                margin-bottom: 24px;
+                margin-left: 23px;
+                background-color: #fff;
+                width: 48px;
+                height: 48px;
+                border-radius: 100%;
+                @extend %shadw;
+                cursor: pointer;
+
+                img {
+                    display: block;
+                    margin: 13px auto;
+                }
+            }
+        }
+
+        &:hover {
+            .box-overlay {
+                bottom: 0;
+            }
+        }
+    }
+
+}

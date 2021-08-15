@@ -1,0 +1,107 @@
+%select {
+    height: 48px;
+    background-color: #fff;
+    border: none;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    -o-appearance: none;
+    appearance: none;
+    background: url(../img/Icons/dropdown.png) center left no-repeat;
+    text-indent: 5px;
+}
+%select-box{
+    span{
+        margin-right: 18px;
+    }
+    input[type="checkbox"]{
+        display: none;
+    }
+    input[type="checkbox"] + span:before{
+        content:url(../img/Icons/unchecked_gray.png);
+        margin-top: 5px;
+        position: absolute;
+        right:5px;
+        top: -7px;
+    }
+    input[type="checkbox"]:checked + span:before{
+        content:url(../img/Icons/checked_green.png);
+        margin-top: 5px;
+
+    }
+}
+
+%btn-style1 {
+    height: 48px;
+    background-color: $color1;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-size: $font21;
+    font-weight: bold;
+    font-family: Hacen;
+    -moz-box-shadow: 0px 3px 6px rgba(0, 0, 0, .26);
+    -webkit-box-shadow: 0px 3px 6px rgba(0, 0, 0, .26);
+    -ms-box-shadow: 0px 3px 6px rgba(0, 0, 0, .26);
+    -o-box-shadow: 0px 3px 6px rgba(0, 0, 0, .26);
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, .26);
+}
+
+%btn-style2 {
+    height: 48px;
+    background-color: #fff;
+    color: $color1;
+    font-size: $font21;
+    border-radius: 5px;
+    font-family: Hacen;
+    font-weight: bold;
+    border: none;
+    -moz-box-shadow: 0px 3px 6px rgba(0, 0, 0, .26);
+    -webkit-box-shadow: 0px 3px 6px rgba(0, 0, 0, .26);
+    -ms-box-shadow: 0px 3px 6px rgba(0, 0, 0, .26);
+    -o-box-shadow: 0px 3px 6px rgba(0, 0, 0, .26);
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, .26);
+}
+
+%input-style {
+    height: 40px;
+    border: 1px solid $color3;
+    border-radius: 5px;
+    text-indent: 15px;
+}
+
+%shadw {
+    -webkit-box-shadow: 0px 2px 4px rgba(0, 0, 0, .16);
+    -moz-box-shadow: 0px 2px 4px rgba(0, 0, 0, .16);
+    -o-box-shadow: 0px 2px 4px rgba(0, 0, 0, .16);
+    -ms-box-shadow: 0px 2px 4px rgba(0, 0, 0, .16);
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, .16);
+}
+%trans{
+    transition: all ease-in-out .3s;
+}
+%filter{
+    background-color: #F7F7F7;
+    border-radius: 5px;
+    @extend %shadw;
+    margin-bottom: 15px;
+
+    h3{
+        padding-top: 15px;
+        padding-bottom: 25px;
+        color: $color2;
+        font-size: $font21;
+        margin-right: 18px;
+    }
+    input{
+        margin-bottom: 25px;
+        margin-left: 15px;
+        margin-right: 18px;
+    }
+    label{
+        font-size: 15px;
+        color: $color2;
+    }
+}

@@ -1,0 +1,96 @@
+.sec1 {
+    padding-top: 60px;
+
+    h1 {
+        font-size: 30px;
+        color: $color2;
+    }
+
+    p {
+        font-size: $font20;
+        color: $color2;
+        margin-bottom: 80px;
+    }
+
+    .box-sec1 {
+        padding-top: 20px;
+        border-radius: 5px;
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, .40);
+        @extend %trans;
+
+        &:hover {
+
+            @extend %shadw;
+        }
+
+        img {
+            width: 110px;
+            height: 110px;
+            margin-bottom: 51px;
+        }
+
+        p {
+            font-size: $font21;
+            color: $color2;
+            padding-bottom: 15px;
+        }
+    }
+}
+
+.sec2 {
+    padding-top: 60px;
+    background: url(../Images/download_app_slider.jpg)center center no-repeat;
+    height: 429px;
+    width: 100%;
+
+    h1 {
+        font-size: 50px;
+        color: $color2;
+        margin-bottom: 11px;
+    }
+
+    p {
+        font-size: $font20;
+        text-align: center;
+        margin-bottom: 75px;
+
+        strong {
+            color: $color5;
+            font-weight: bold;
+        }
+    }
+}
+
+.sec4 {
+    padding-top: 60px;
+
+    h1 {
+        font-size: $font30;
+        color: $color2;
+        margin-bottom: 18px;
+    }
+
+    p {
+        font-size: $font20;
+        color: $color2;
+    }
+
+    .carousel-item {
+        height: 300px;
+        background-color:#fff;
+        width: 100%;
+        .box-sec4{
+            @extend %shadw;
+            border-radius: 5px;
+            margin-left: 9px;        }
+    }
+    .carousel-indicators{
+        bottom: -45px !important;
+        li{
+            background-color: $color3;
+        }
+        .active{
+            background-color: $color1;
+        }
+    }
+}

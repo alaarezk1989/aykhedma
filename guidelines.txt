@@ -1,0 +1,20 @@
+Important Git Commands
+
+//Starting on a new merge request
+
+git checkout master
+git pull
+git checkout -b my-branch-name
+git push
+git push --set-upstream origin my-branch-name
+
+visit gitlab merge requests section
+
+Gitlab will suggest to create a new merge request for the recently push branch "my-branch-name"
+click on create merge request
+change the label to be Work in progress
+
+Do all the changes you need with some commits then change the label to be needs review
+
+once reviewed it will be merged by the next release.
+

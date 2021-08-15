@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css?family=Cairo:200,300,400,600,700,900&subset=arabic');
+
+body {
+    direction: rtl;
+    text-align: right;
+    font-family: 'Cairo', sans-serif;
+}
+
+/*navbar and asidebar*/
+.form-inline {
+    margin-left: auto !important;
+    margin-right: 0 !important;
+}
+
+.app-sidebar {
+    left: inherit;
+    right: 0;
+    -webkit-transition: right 0.3s ease, width 0.3s ease;
+    -o-transition: right 0.3s ease, width 0.3s ease;
+    transition: right 0.3s ease, width 0.3s ease;
+}
+
+.side-menu .side-menu__icon {
+    margin-left: 8px;
+    margin-right: -8px;
+}
+
+/*app content*/
+@media (min-width: 768px) {
+    .app.sidenav-toggled .app-content {
+        margin-right: 0;
+    }
+
+    .app.sidenav-toggled .app-sidebar {
+        right: -230px;
+    }
+
+    .app.sidenav-toggled .app-sidebar__overlay {
+        visibility: hidden;
+    }
+}
+
+.app-content {
+    -webkit-transition: margin-right 0.3s ease;
+    -o-transition: margin-right 0.3s ease;
+    transition: margin-right 0.3s ease;
+}
+
+@media (min-width: 768px) {
+    .app.sidenav-toggled .app-content {
+        margin-right: 0 !important;
+    }
+}
+
+@media (min-width: 768px) {
+    .app-content {
+        margin-left: 0;
+        margin-right: 230px !important;
+    }
+}
+
+/*tabel*/
+/* Change float right on style en !important !!!!!!*/
+.card-header .table-add {
+    float: left !important;
+}
+
+/**/
+.custom-switch-description {
+    margin-right: .5rem;
+}
+
+.nav-tabs {
+    padding-right: 0;
+}
+
+/*dropdown-item */
+.dropdown-menu {
+    text-align: right;
+}
+
+.btn.has-icon i, .dropdown-item.has-icon i {
+    float: right;
+    margin-left: 15px;
+}
+
+/*Modal*/
+.modal-header .close {
+    margin-right: auto;
+    margin-left: 0;
+}
+
+.modal-footer {
+    justify-content: flex-start;
+}
+
+.modal-footer> :not(:last-child) {
+    margin-left: .25rem;
+    margin-right: 0;
+}
+
+.modal-footer> :not(:first-child) {
+    margin-right: .25rem;
+    margin-left: 0;
+}
+
+/*Footer*/
+.main-footer {
+    padding: 20px 230px 20px 30px;
+}

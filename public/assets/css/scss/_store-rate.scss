@@ -1,0 +1,121 @@
+.store-rate {
+    margin-top: 50px;
+
+    .rate-detils {
+        @extend %shadw;
+
+        h2 {
+            padding-right: 30px;
+            font-size: $font21;
+            padding-top: 25px;
+        }
+
+        .itms {
+            padding-left: 30px;
+
+            span {
+                margin-left: 15px;
+                font-size: 16px;
+                font-weight: 600;
+            }
+
+            i {
+                padding-top: 20px;
+            }
+
+            .fa-star {
+                color: #FCC05A;
+            }
+
+            .fa-star-o {
+                color: #ccc;
+            }
+
+            .btn {
+                color: #fff;
+                background-color: #FCC05A;
+                width: 48px;
+                height: 48px;
+                border-radius: 100%;
+                margin-right: 15px;
+                margin-top: -15px;
+                font-size: 30px;
+                line-height: 30px;
+            }
+        }
+    }
+
+    .rate-info {
+        padding-right: 20px;
+        position: relative;
+
+        img {
+            width: 100;
+            height: 100;
+            margin-bottom: 15px;
+        }
+
+        h3 {
+            font-size: $font21;
+            color: $color2;
+        }
+
+        p {
+            font-size: $font16;
+        }
+
+        .datetime {
+            position: absolute;
+            left: 25px;
+            top: 0;
+        }
+
+        .fa-star {
+            color: #FCC05A;
+        }
+
+        .fa-star-o {
+            color: #ccc;
+        }
+    }
+}
+
+.my-modal {
+    border-radius: 5px;
+    @extend %shadw;
+    border: none;
+padding: 30px 25px;
+    .ratestar{
+        .fa-star{
+            color: $color4;
+        }
+        .fa-star-o{
+            color: $color3;
+        }
+    }
+    textarea {
+        resize: none;
+        border-radius: 5px;
+        border: 1px solid $color2;
+        height: 136px;
+        margin-top: 40px;
+        padding-top: 8px;
+        text-indent: 15px;
+    }
+}
+
+.modal-footer {
+    border: none;
+    .btn-send{
+        @extend %btn-style1;
+        font-weight: normal;
+        background-color: $color4;
+        margin-bottom: 15px;
+    }
+    .btn-close{
+        @extend %btn-style1;
+        font-weight: normal;
+        background-color: #eee;
+        color: $color2;
+    }
+}

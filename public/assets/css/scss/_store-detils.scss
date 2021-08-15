@@ -1,0 +1,66 @@
+.sec7 {
+    margin-top: 30px;
+
+    .box-detils {
+        border-radius: 5px;
+        @extend %shadw;
+        padding-top: 14px;
+        padding-bottom: 10px;
+
+        h3 {
+            font-size: $font21;
+            padding-right: 15px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #eee;
+            color: $color2;
+        }
+        .info-sec7{
+            h1{
+                font-weight: bold;
+                padding-top: 15px;
+                padding-bottom: 23px;
+                padding-right: 29px;
+                font-size: $font30;
+                color: $color2;
+            }
+            p{
+                padding-right: 29px;
+                color: $color3;
+            }
+        }
+        .info2-sec{
+            margin-bottom: 30px;
+            h5{
+                font-size: $font16;
+            }
+            p{
+                font-size: $font16;
+                color: $color3;
+                &:after{
+                    content: '';
+                    display: block;
+                    width: 90%;
+                    height: 3px;
+                    background-color: #eee;
+                    margin-top: 10px;
+                }
+            }
+        }
+        .days {
+            margin-bottom: 15px;
+            padding-right: 15px;
+
+            p {
+                font-size: $font16;
+                color: $color2;
+                margin-bottom: 0;
+                margin-top: 15px;
+            }
+
+            span {
+                display: block;
+                color: $color3;
+            }
+        }
+    }
+}

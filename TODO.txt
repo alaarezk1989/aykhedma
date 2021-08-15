@@ -1,0 +1,10 @@
+[] Users Should have a constant type (1 is Consumer, 2 is Admin, 3 is Vendor) Consumer is default
+[] Users from type vendores should have one activity
+[] When creating a new branch at has to be assigned to a vendor
+[] Products should have a category
+[] When adding a product to a branch, only the vendor category products are allowed.
+[] 
+[] 
+[] 
+[] 
+[] 

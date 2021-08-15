@@ -1,0 +1,121 @@
+.navbar {
+    .droblogin {
+        border: 1px solid rgba(0, 0, 0, .15)!important;
+        width: inherit !important;
+        left: inherit !important;
+        top: 45px !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        text-align: right !important;
+        .dropdown-item{
+            color: $color3;
+            @extend %trans;
+            font-size: $font16;
+            &:hover{
+                color: $color6;
+            }
+        }
+    }
+}
+.headr-stor{
+    min-height: 400px;
+    .carousel-caption{
+        top: 30%;
+        h2{
+            font-size: 108px;        }
+    }
+    .carousel-indicators{
+        .active{
+            background-color: $color1;
+        }
+    }
+}
+.filter{
+    margin-top: 30px;
+    .serch{
+        position: relative;
+        input{
+            @extend %input-style;
+            height: 45px;
+            border: 3px solid #ccc;
+            margin-bottom:10px;
+        }
+        i {
+            position: absolute;
+            left: 10px;
+            top: 13px;
+        }
+    }
+    select{
+        @extend %select;
+        border: 3px solid #ccc;
+         margin-bottom:10px;
+    }
+    .btn{
+        @extend %btn-style1;
+    }
+}
+.store{
+    margin-top: 30px;
+
+    .filter2{
+        @extend %filter;
+        .serch{
+            position: relative;
+            input{
+                @extend %input-style;
+                height: 45px;
+                border: 3px solid #ccc;
+                margin:0 !important;
+                margin-bottom:20px !important;
+
+            }
+            i {
+                position: absolute;
+                left: 10px;
+                top: 13px;
+            }
+        }
+        label{
+            width: 100%;
+            position: relative;
+            margin-bottom: 18px;
+            @extend %select-box;
+            cursor: pointer;
+        }
+    }
+    .store-box{
+        .box-info{
+            height: 300px;
+            @extend %shadw;
+            margin-bottom:23px;
+            position: relative;
+            .img-info{
+                width: 100%;
+                height: 100%;
+            }
+            .info{
+                background-color: #FFF;
+                opacity: .9;
+                padding-top: 18px;
+                padding-right: 18px;
+                width: 100%;
+                position: absolute;
+                bottom: 0;
+
+                h4{
+                    color: $color2;
+                    font-size: 21px;
+                    margin-bottom: 8px;
+                }
+                span{
+                    padding-bottom: 18px;
+                    display: block;
+                }
+                .checked{
+                    color: #FFB300;
+                }
+            }
+        }
+    }
+}

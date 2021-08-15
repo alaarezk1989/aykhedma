@@ -1,0 +1,443 @@
+.navbar {
+    height: 65px;
+    @extend %shadw;
+    font-size: $font16;
+
+    .navbar-nav {
+        .nav-link {
+            color: $color5;
+            padding-left: 25px;
+
+
+            &:hover {
+                color: $color5;
+            }
+
+            &:focus {
+                color: $color5;
+            }
+        }
+    }
+
+    .dropdown-toggle {
+        span {
+            padding-right: 10px;
+            padding-left: 5px;
+            color: $color2;
+        }
+
+        &:after {
+            color: $color2;
+
+        }
+    }
+}
+
+.navbar-light .navbar-nav .active>.nav-link,
+.navbar-light .navbar-nav .nav-link.active,
+.navbar-light .navbar-nav .nav-link.show,
+.navbar-light .navbar-nav .show>.nav-link {
+    color: $color5;
+}
+
+.navbar-expand-lg .navbar-nav .dropdown-menu {
+    width: 410px;
+    left: 200px;
+    top: 70px;
+    border: none;
+    border-bottom: 5px solid $color1;
+    padding-left: 10px;
+    padding-right: 10px;
+
+    .head-box {
+        margin-bottom: 26px;
+
+        h3 {
+            font-size: 21px;
+            padding-top: 15px;
+        }
+
+        .active {
+            color: $color1;
+
+            &:after {
+                content: '';
+                position: absolute;
+                width: 100%;
+                height: 5px;
+                background-color: #13A651;
+                top: -8px;
+                left: 0;
+                border-top-left-radius: 10px;
+                border-top-right-radius: 10px;
+
+            }
+        }
+    }
+
+    .signup {
+        input {
+            @extend %input-style;
+            margin-bottom: 20px;
+        }
+
+        .check {
+            height: 40px;
+            border: 1px solid $color2;
+            border-radius: 5px;
+
+            span {
+                display: inline-block;
+                position: absolute;
+                top: 10px;
+                right: 80px;
+
+            }
+        }
+
+        .btn-sign {
+            @extend %btn-style1;
+            margin-top: 37px;
+        }
+
+        h4 {
+            color: $color3;
+            margin-top: 14px;
+
+            &:after {
+                content: '';
+                position: absolute;
+                width: 43%;
+                height: 1px;
+                background-color: #ccc;
+                top: 29px;
+                right: 5px;
+            }
+
+            &:before {
+                content: '';
+                position: absolute;
+                width: 43%;
+                height: 1px;
+                background-color: #ccc;
+                top: 29px;
+                left: 5px;
+            }
+        }
+
+        p {
+            margin-top: 8px;
+        }
+    }
+
+    .signin {
+        display: none;
+
+        input {
+            @extend %input-style;
+            margin-bottom: 20px;
+        }
+
+        a {
+            cursor: pointer;
+        }
+
+        h4 {
+            color: $color3;
+            margin-top: 14px;
+
+            &:after {
+                content: '';
+                position: absolute;
+                width: 43%;
+                height: 1px;
+                background-color: #ccc;
+                top: 29px;
+                right: 5px;
+            }
+
+            &:before {
+                content: '';
+                position: absolute;
+                width: 43%;
+                height: 1px;
+                background-color: #ccc;
+                top: 29px;
+                left: 5px;
+            }
+        }
+
+        button {
+            @extend %btn-style1;
+            margin-top: 15px;
+        }
+    }
+}
+
+.email-form {
+    background-color: rgba(0, 0, 0, .36);
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 999999;
+
+    .form2 {
+        background-color: #fff;
+        padding-left: 65px;
+        padding-right: 65px;
+        padding-top: 30px;
+        padding-bottom: 30px;
+        position: relative;
+        top: 300px;
+        border-radius: 5px;
+        @extend %shadw;
+
+        .close {
+            position: absolute;
+            top: 9px;
+            right: 12px;
+        }
+
+        p {
+            font-size: $font21;
+            color: $color3;
+        }
+
+        input {
+            @extend %input-style;
+            margin-bottom: 30px;
+            padding-right: 15px;
+        }
+
+        a {
+            color: $color1;
+            font-size: $font16;
+        }
+
+        .btn {
+            background-color: $color1;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+    }
+
+}
+
+.nav-item {
+    label {
+        cursor: pointer;
+
+        &:after {
+            display: inline-block;
+            width: 0;
+            height: 0;
+            margin-right: .255em;
+            vertical-align: .255em;
+            content: "";
+            border-top: .3em solid;
+            border-right: .3em solid transparent;
+            border-bottom: 0;
+            border-left: .3em solid transparent;
+        }
+    }
+}
+
+.dropdown-menu {
+    li {
+        h3 {
+            cursor: pointer;
+        }
+    }
+}
+
+
+
+/***********Nav Cart Style************/
+$primary-color: #00c0cb;
+$second-color: #f8770c;
+$light-text: #ABB0BE;
+
+
+
+/////////// --START DEMO CSS -- ///////////
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+
+
+.lighter-text {
+  color: #ABB0BE;
+}
+
+.main-color-text {
+  color: $primary-color;
+}
+
+.navCart {
+  padding: 20px 0 20px 0;
+  background: #eee;
+  font-size: 16px;
+
+  .navbar-left {
+    float: left;
+  }
+
+  .navbar-right {
+    float: right;
+    position: relative;
+  }
+
+
+   a {
+    display: inline;
+    padding-left: 20px;
+    color: #777777;
+    text-decoration: none;
+
+    &:hover {
+      color: black;
+    }
+  }
+}
+
+
+/////////// --END DEMO CSS -- ///////////
+
+
+.badge {
+    background-color: red;
+    border-radius: 10px;
+    color: white;
+    display: inline-block;
+    font-size: 12px;
+    line-height: 1;
+    padding: 3px 7px;
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+.shopping-cart {
+  background: white;
+  width: 320px;
+  position: absolute;
+  top: 30px;
+  right: -10px;
+  border-radius: 3px;
+  padding: 20px;
+  overflow: hidden;
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,.26)!important;
+  -webkit-transition: all .2s ease;
+  transition: all .2s ease;
+  opacity: 0;
+  -webkit-transform-origin: right top 0;
+  -webkit-transform: scale(0);
+  transform-origin: right top 0;
+  transform: scale(0);
+  &.active {
+    opacity: 1;
+    -webkit-transform-origin: right top 0;
+    -webkit-transform: scale(1);
+    transform-origin: right top 0;
+    transform: scale(1);
+  }
+  .shopping-cart-header {
+    border-bottom: 1px solid #E8E8E8;
+    padding-bottom: 15px;
+
+    .shopping-cart-total {
+      float: right;
+    }
+  }
+
+  .shopping-cart-items {
+
+    padding-top: 20px;
+
+      li {
+        margin-bottom: 18px;
+      }
+
+    img {
+      float: left;
+      margin-right: 12px;
+      max-width: 70px;
+      max-height: 70px;
+    }
+
+    .item-name {
+      display: block;
+      font-size: 16px;
+    }
+    .item-detail {
+      display: block;
+      font-size: 12px;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+
+
+    .item-price {
+      color: $primary-color;
+      margin-right: 8px;
+    }
+
+    .item-quantity {
+      color: $light-text;
+    }
+  }
+
+}
+
+.shopping-cart:after {
+	bottom: 100%;
+	left: 89%;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+	border-bottom-color: white;
+	border-width: 8px;
+	margin-left: -8px;
+}
+
+.cart-icon {
+  color: #515783;
+  font-size: 24px;
+  margin-right: 7px;
+  float: left;
+}
+
+.button {
+  background: $second-color;
+  color:white;
+  text-align: center;
+  padding: 12px;
+  text-decoration: none;
+  display: block;
+  border-radius: 3px;
+  font-size: 16px;
+  margin: 25px 0 15px 0;
+  text-transform: uppercase;
+  &:hover {
+    background: lighten($second-color, 3%);
+  }
+  i {
+    padding-left: 5px;
+  }
+}
+
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}

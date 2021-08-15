@@ -1,0 +1,61 @@
+footer {
+    margin-top: 97px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    position: relative;
+    background-color: #F7F7F7;
+
+    .logolg {
+        margin-bottom: 20px;
+    }
+
+    .sub {
+        padding-top: 18px;
+
+        input {
+            @extend %input-style;
+            height: 40px !important;
+            width: 75%;
+            border-color: $color1;
+            border-width: 3px;
+
+        }
+
+        .btn {
+            @extend %btn-style1;
+            height: 40px !important;
+            position: absolute;
+            left: 16px;
+
+        }
+    }
+    .footer-info{
+        padding-top: 15px;
+        p{
+            color: $color2;
+            font-size: $font16;
+        }
+        .socail{
+            img{
+                margin-left: 10px;
+            }
+        }
+    }
+    ul{
+        padding: 0;
+        margin: 0;
+        padding-top:15px;
+        li{
+            padding-top: 15px;
+            a{
+                color: $color2;
+                font-size: $font16;
+                @extend %trans;
+                &:hover{
+                    color: $color1;
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+}
