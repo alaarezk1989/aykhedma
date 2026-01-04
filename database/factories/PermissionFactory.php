@@ -10,7 +10,7 @@ $factory->define(Permission::class, function (Faker $faker) {
 
     $permission = [
         "identifier" => str_replace(' ', '.', $faker->word),
-        "active" => $faker->boolean,
+        "active" => $faker->boolean(),
     ];
 
     foreach (Config::get('app.locales') as $lang => $language) {

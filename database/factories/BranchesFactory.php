@@ -13,7 +13,7 @@ $factory->define(Branch::class, function (Faker $faker) {
         "vendor_id" => factory(Vendor::class)->create()->id,
         'lat'       => $faker->latitude,
         'lng'       => $faker->longitude,
-        'active'    => $faker->boolean,
+        'active'    => $faker->boolean(),
         'type'    => $faker->randomElement(BranchTypes::getTypeValue()),
     ];
 

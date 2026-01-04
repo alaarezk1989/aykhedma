@@ -4,7 +4,7 @@ namespace App\Models;
 
 use App\Events\UnitDeletedEvent;
 use App\Events\UnitEditedEvent;
-use Dimsav\Translatable\Translatable;
+use Astrotomic\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 

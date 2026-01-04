@@ -26,7 +26,7 @@ mix.styles([
     'public/assets/css/jquery.timepicker.min.css'
 ], 'public/assets/css/admin.app.css');
 
-mix.js('resources/js/app.js', 'public/assets/js/vue.app.js');
+mix.js('resources/js/app.js', 'public/assets/js/vue.app.js').vue();
 
 mix.scripts([
     'public/assets/js/jquery.min.js',

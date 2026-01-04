@@ -5,7 +5,7 @@
 
     $factory->define( Category::class, function (Faker $faker) {
         return [
-            'active' => $faker->boolean,
+            'active' => $faker->boolean(),
             'en'=> ['name' => $faker->city],
             'ar'=> ['name' => $faker->city],
         ];

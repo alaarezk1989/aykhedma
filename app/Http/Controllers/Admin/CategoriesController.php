@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Admin\Requests\CategoryRequest;
+use App\Http\Requests\Admin\CategoryRequest;
 use App\Http\Controllers\BaseController;
 use App\Http\Services\CategoryService;
 use App\Http\Services\UploaderService;

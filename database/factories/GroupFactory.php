@@ -8,7 +8,7 @@ $factory->define(Group::class, function (Faker $faker) {
     $arabicFaker = Factory::create('ar_SA');
 
     $groups = [
-        'active' => $faker->boolean,
+        'active' => $faker->boolean(),
     ];
     foreach (Config::get('app.locales') as $lang => $language) {
         $tempFaker = $lang == 'ar' ? $arabicFaker : $faker;

@@ -4,10 +4,8 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-
-class CreateLogsTable extends Migration
+class CreateSessionsTable extends Migration
 {
-    // protected $connection = 'mongodb';
     /**
      * Run the migrations.
      *
@@ -15,13 +13,13 @@ class CreateLogsTable extends Migration
      */
     public function up()
     {
-        Schema::create('logs', function (Blueprint $table) {
-            $table->bigIncrements('id');
+        Schema::create('sessions', function (Blueprint $table) {
+            $table->string('id')->unique();
             $table->unsignedBigInteger('user_id')->nullable();
-            $table->integer('object_id');
-            $table->string('object_type');
-            $table->string('message', 255);
-            $table->timestamps();
+            $table->string('ip_address', 45)->nullable();
+            $table->text('user_agent')->nullable();
+            $table->text('payload');
+            $table->integer('last_activity');
         });
     }
 
@@ -32,6 +30,6 @@ class CreateLogsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('logs');
+        Schema::dropIfExists('sessions');
     }
 }

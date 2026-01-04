@@ -25,7 +25,7 @@ $factory->define(Discount::class, function (Faker $faker) {
         "activity_id" => $faker->randomElement(Activity::all())->id,
         "vendor_id" => $faker->randomElement(Vendor::all())->id,
         "branch_id" => $faker->randomElement(Branch::all())->id,
-        "active" => $faker->boolean,
+        "active" => $faker->boolean(),
     ];
 
     foreach (Config::get('app.locales') as $lang => $language) {

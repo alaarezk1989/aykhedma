@@ -17,7 +17,7 @@ $factory->define(Product::class, function (Faker $faker) {
         "unit_value" => $faker->randomDigit,
         "code" => $faker->postcode ,
         "manufacturer" => $faker->company ,
-        "active" => $faker->boolean ,
+        "active" => $faker->boolean() ,
     ];
 
     foreach (Config::get('app.locales') as $lang => $language) {

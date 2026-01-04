@@ -22,7 +22,7 @@ $factory->define(Shipment::class, function (Faker $faker) {
         'to_time' => $faker->time($format = 'H:m:s'),
         'last_touch' => $faker->dateTime($format = 'Y-m-d'),
         'cut_off_date' => $faker->numberBetween(1, 72),
-        'active' => $faker->boolean,
+        'active' => $faker->boolean(),
     ];
 
     $trip['load'] = $faker->numberBetween(500, $trip['capacity']);

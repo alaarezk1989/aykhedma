@@ -19,7 +19,7 @@ use Faker\Generator as Faker;
         'price' => $faker->randomDigit,
         'discount' => $faker->randomDigit,
         'discount_till' => date("Y-m-d"),
-        "active" => $faker->boolean ,
+        "active" => $faker->boolean() ,
     ];
     
     $branchProduct["category_id"] = Product::where('id',$branchProduct["product_id"])->first()->category_id;

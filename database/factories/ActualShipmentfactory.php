@@ -25,7 +25,7 @@ $factory->define(ActualShipment::class, function (Faker $faker) {
         'cutoff' => $faker->date($format = 'Y-m-d', $max = 'now'),
         'capacity' =>  $faker->numberBetween(500, 1000),
         'status' =>  $faker->randomElement(ActualShipmentStatus::getStatusesValues()),
-        'active' => $faker->boolean,
+        'active' => $faker->boolean(),
     ];
 
     $actualShipment['load'] = $faker->numberBetween(500, $actualShipment['capacity']);

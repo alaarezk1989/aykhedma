@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Dimsav\Translatable\Translatable;
+use Astrotomic\Translatable\Translatable;
 
 class Coupon extends Model
 {

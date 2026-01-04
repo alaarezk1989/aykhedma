@@ -26,7 +26,7 @@ $factory->define(Banner::class, function (Faker $faker) {
         'date_to' => $faker->date($format = 'Y-m-d', $max = 'now'),
         'branch_id' => $faker->randomElement($branches)->id,
         'image' => $faker->imageUrl(),
-        'active' => $faker->boolean,
+        'active' => $faker->boolean(),
     ];
 
     return $banner;

@@ -28,7 +28,7 @@ $shippingCompanies=ShippingCompany::where('active', '=', 1)->get();
             'zone_id'    => $faker->randomElement($locations)->id,
             'driver_id'  => $faker->randomElement($drivers)->id ,
             'number'     => $faker->randomNumber,
-            'active'     => $faker->boolean,
+            'active'     => $faker->boolean(),
     ];
 
     foreach (Config::get('app.locales') as $lang => $language) {

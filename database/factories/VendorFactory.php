@@ -12,7 +12,7 @@ $factory->define(Vendor::class, function (Faker $faker) {
     $vendor = [
         'activity_id' => $faker->randomElement($activities)->id ,
         'logo' => $faker->imageUrl(),
-        'active'    => $faker->boolean,
+        'active'    => $faker->boolean(),
         'type'    => $faker->randomElement(VendorTypes::getTypeValue()),
     ];
 

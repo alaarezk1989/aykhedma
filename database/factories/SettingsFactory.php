@@ -11,7 +11,7 @@ $factory->define(Setting::class, function (Faker $faker) {
 
     $setting = [
         "key" => "key #" . random_int(2, 99),
-        'active'    => $faker->boolean,
+        'active'    => $faker->boolean(),
     ];
 
     foreach (Config::get('app.locales') as $lang => $language) {

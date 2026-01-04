@@ -11,7 +11,7 @@ $factory->define(ShippingCompany::class, function (Faker $faker) {
         'phone'       => $faker->phoneNumber,
         'email'       => $faker->email,
         'address'       =>$faker->address,
-        'active' => $faker->boolean,
+        'active' => $faker->boolean(),
     ];
 
     foreach (Config::get('app.locales') as $lang => $language) {

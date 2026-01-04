@@ -5,7 +5,7 @@ namespace App\Models;
 use App\Events\BranchDeletedEvent;
 use App\Events\BranchEditedEvent;
 use App\Events\BranchCreatedEvent;
-use Dimsav\Translatable\Translatable;
+use Astrotomic\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -56,7 +56,7 @@ class Branch extends Model
      */
     public function getNameAttribute()
     {
-        return $this->getTranslationByLocaleKey(app()->getLocale())->name;
+        return optional($this->getTranslationByLocaleKey(app()->getLocale()))->name;
     }
 
     public function categories()

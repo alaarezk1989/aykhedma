@@ -7,7 +7,7 @@ $factory->define(Subscriber::class, function (Faker $faker) {
 
     $subscribers = [
         [
-            'active' => $faker->boolean,
+            'active' => $faker->boolean(),
             'email'  => $faker->unique()->safeEmail,
         ],       
     ];
