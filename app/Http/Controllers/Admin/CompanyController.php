@@ -28,7 +28,6 @@ class CompanyController extends BaseController
 
     public function index(Request $request)
     {
-        $this->authorize("index", Company::class);
         $list = $this->companyRepository->search(request())->paginate(10);
         $list->appends(request()->all());
         return View('admin.companies.index', compact('list'));

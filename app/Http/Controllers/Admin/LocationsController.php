@@ -24,7 +24,6 @@ class LocationsController extends BaseController
 
     public function index(Request $request)
     {
-        $this->authorize("index", Location::class);
         $list = $this->locationRepository->search(request());
 
         if ($request->query->get('view') == 'tree') {

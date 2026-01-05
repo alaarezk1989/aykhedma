@@ -22,15 +22,16 @@ class TransactionPolicy
         if (!$user->isTypeOf(UserTypes::ADMIN)) {
             return false;
         }
+        return null;
     }
 
     /**
-     * Determine whether the user can view the transaction index.
+     * Determine whether the user can view the unit index.
      *
      * @param User $user
      * @return bool
      */
-    public function index(User $user)
+    public function viewAny(User $user)
     {
         return $user->hasAccess("admin.transactions.index");
     }

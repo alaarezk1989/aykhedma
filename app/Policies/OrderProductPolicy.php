@@ -19,10 +19,16 @@ class OrderProductPolicy
         }
     }
 
-    public function index(User $user)
+    /**
+     * Determine whether the user can view the unit index.
+     *
+     * @param User $user
+     * @return bool
+     */
+    public function viewAny(User $user)
     {
         if ($user->type == UserTypes::ADMIN) {
-            return $user->hasAccess("admin.order.products.index");
+            return $user->hasAccess("admin.order_product.index");
         }
         if ($user->type == UserTypes::VENDOR) {
             return $user->hasAccess("vendor.order.products.index");

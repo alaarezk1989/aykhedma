@@ -30,8 +30,6 @@ class SegmentationsController extends BaseController
 
     public function index()
     {
-        $this->authorize("index", Segmentation::class);
-
         $list = $this->segmentationRepository->search(request())->paginate(10);
 
         $list->appends(request()->all());

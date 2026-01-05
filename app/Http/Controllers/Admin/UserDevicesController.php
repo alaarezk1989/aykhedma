@@ -31,7 +31,6 @@ class UserDevicesController extends BaseController
      */
     public function index(User $user)
     {
-        $this->authorize("index", UserDevice::class);
         $list = $user->devices;
         return View::make('admin.users.devices.index', ['list' => $list, 'user' => $user]);
     }

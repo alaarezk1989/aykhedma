@@ -39,7 +39,6 @@ class BranchesController extends BaseController
 
     public function index()
     {
-        $this->authorize("index", Branch::class);
         $list = $this->branchRepository->search(request())->paginate(10);
         $list->appends(request()->all());
         $count = $this->branchRepository->search(request())->count();
@@ -64,7 +63,7 @@ class BranchesController extends BaseController
 
     public function destroy(Branch $branch)
     {
-        if (count($branch->orders)) {
+        if ($branch->orders->count()) {
             foreach ($branch->orders as $order) {
                 if ($order->status == OrderStatus::SUBMITTED || $order->status == OrderStatus::ASSIGNED) {
                     return redirect()->back()->with('danger', trans('cant_delete_this_item_related_with_running_orders'));

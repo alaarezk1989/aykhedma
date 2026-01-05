@@ -28,7 +28,6 @@ class VendorsController extends BaseController
 
     public function index()
     {
-        $this->authorize("index", Vendor::class);
         $list = $this->vendorRepository->search(request())->paginate(10);
         $list->appends(request()->all());
         $count = $this->vendorRepository->search(request())->count();
@@ -53,7 +52,7 @@ class VendorsController extends BaseController
 
     public function destroy(Vendor $vendor)
     {
-        if (count($vendor->branches)) {
+        if ($vendor->branches->count()) {
             return redirect()->back()->with('danger', trans('cant_delete_this_item_related_with_branches'));
         }
 

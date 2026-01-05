@@ -14,7 +14,7 @@ class UserPolicy
      * Determine whether the user can view the unit index.
      *
      * @param User $user
-     * @return bool
+     * @return bool|null
      */
     public function before(User $user)
     {
@@ -22,15 +22,16 @@ class UserPolicy
         if (!$user->isTypeOf(UserTypes::ADMIN) && !$user->isTypeOf(UserTypes::VENDOR)) {
             return false;
         }
+        return null;
     }
 
     /**
-     * Determine whether the user can view the  index.
+     * Determine whether the user can view the unit index.
      *
      * @param User $user
      * @return bool
      */
-    public function index(User $user)
+    public function viewAny(User $user)
     {
         if ($user->type == UserTypes::ADMIN) {
             return $user->hasAccess("admin.users.index");

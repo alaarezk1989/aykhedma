@@ -24,7 +24,6 @@ class StocksController extends BaseController
 
     public function index()
     {
-        $this->authorize("index", Stock::class);
         $list = $this->stockRepository->search(request())->paginate(10);
         $list->appends(request()->all());
         return View::make('admin.stocks.index', ['list' => $list]);

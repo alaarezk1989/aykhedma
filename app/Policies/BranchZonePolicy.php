@@ -26,7 +26,14 @@ class BranchZonePolicy
         }
     }
 
-    public function index(User $user, Branch $branch)
+    /**
+     * Determine whether the user can view the branchZone index.
+     *
+     * @param User $user
+     * @param Branch $branch
+     * @return bool
+     */
+    public function viewAny(User $user, Branch $branch)
     {
         if ($user->type == UserTypes::ADMIN) {
             return $user->hasAccess("admin.branch.zones", $branch);
@@ -35,6 +42,8 @@ class BranchZonePolicy
         if ($user->type == UserTypes::VENDOR && $user->vendor_id == $branch->vendor_id) {
             return $user->hasAccess("vendor.branch.zones");
         }
+
+        return false;
     }
 
     /**

@@ -16,7 +16,7 @@ class BranchProductPolicy
      * Determine whether the user can view the branchProduct index.
      *
      * @param User $user
-     * @return bool
+     * @return bool|null
      */
     public function before(User $user)
     {
@@ -26,7 +26,14 @@ class BranchProductPolicy
         }
     }
 
-    public function index(User $user, Branch $branch)
+    /**
+     * Determine whether the user can view the branchProduct index.
+     *
+     * @param User $user
+     * @param Branch $branch
+     * @return bool
+     */
+    public function viewAny(User $user, Branch $branch)
     {
         if ($user->type == UserTypes::ADMIN) {
             return $user->hasAccess("admin.branch.products.index", $branch);
@@ -35,6 +42,8 @@ class BranchProductPolicy
         if ($user->type == UserTypes::VENDOR && $user->vendor_id == $branch->vendor_id) {
             return $user->hasAccess("vendor.branch.products.index");
         }
+
+        return false;
     }
 
     /**

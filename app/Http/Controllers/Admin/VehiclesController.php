@@ -37,7 +37,6 @@ class VehiclesController extends BaseController
 
     public function index()
     {
-        $this->authorize("index", Vehicle::class);
         $drivers = Vehicle::get('driver_id');
         $types = VehicleTypes::getList();
         $status = VehicleStatus::getList();
