@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Constants\TicketStatus;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Events\TicketEditedEvent;
@@ -11,6 +12,7 @@ use App\Events\TicketCreatedEvent;
 
 class Ticket extends Model
 {
+    use HasFactory;
     use SoftDeletes;
 
     public static $autoValidates = true;

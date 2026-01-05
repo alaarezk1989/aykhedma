@@ -37,9 +37,9 @@ class AuthController extends BaseController
         event(new UserLoggedEvent($user));
 
         if (!$user->token || $user->token_expires_at < Carbon::now()) {
-            $token = $user->createToken('User Personal Token #' . $user->id);
-            $user->token = $token->accessToken;
-            $user->token_expires_at = $token->token->expires_at;
+            $newToken = $user->createToken('User Personal Token #' . $user->id);
+            $user->token = $newToken->accessToken;
+            $user->token_expires_at = $newToken->token->expires_at;
             $user->save();
         }
 

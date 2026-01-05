@@ -1,14 +1,21 @@
 <?php
 
+namespace Database\Factories;
+
 use App\Models\Ticket;
 use App\Models\TicketReply;
 use App\Models\User;
 use Faker\Generator as Faker;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
+class TicketReplyFactory extends Factory
+{
+    protected $model = TicketReply::class;
 
-$factory->define(TicketReply::class, function (Faker $faker) {
-
-    $users         = User::all();
+    public function definition(): array
+    {
+        $faker = $this->faker;
+        $users         = User::all();
     $tickets       = Ticket::all();
     $ticketReply = [
         [
@@ -19,4 +26,5 @@ $factory->define(TicketReply::class, function (Faker $faker) {
     ];
 
     return $faker->randomElement($ticketReply);
-});
+    }
+}

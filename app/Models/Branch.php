@@ -6,11 +6,13 @@ use App\Events\BranchDeletedEvent;
 use App\Events\BranchEditedEvent;
 use App\Events\BranchCreatedEvent;
 use Astrotomic\Translatable\Translatable;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Branch extends Model
 {
+    use HasFactory;
     use Translatable;
     use SoftDeletes;
     protected $table = 'branches';

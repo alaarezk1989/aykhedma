@@ -9,11 +9,13 @@ use App\Events\VendorCreatedEvent;
 use Astrotomic\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Vendor extends Model
 {
     use Translatable;
     use SoftDeletes;
+    use HasFactory;
     protected $table = 'vendors';
     public $translatedAttributes = ['name'];
 

@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Astrotomic\Translatable\Translatable;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Events\ShippingCompanyEditedEvent;
@@ -11,6 +12,7 @@ use App\Events\ShippingCompanyCreatedEvent;
 
 class ShippingCompany extends Model
 {
+    use HasFactory;
     use Translatable;
     use SoftDeletes;
     protected $table = 'shipping_companies';

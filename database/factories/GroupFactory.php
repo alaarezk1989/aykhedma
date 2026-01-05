@@ -1,11 +1,21 @@
 <?php
 
+namespace Database\Factories;
+
 use Faker\Generator as Faker;
 use App\Models\Group;
-use Faker\Factory;
+use Faker\Factory as FakerFactory;
+use Illuminate\Support\Facades\Config;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
-$factory->define(Group::class, function (Faker $faker) {
-    $arabicFaker = Factory::create('ar_SA');
+class GroupFactory extends Factory
+{
+    protected $model = Group::class;
+
+    public function definition(): array
+    {
+        $faker = $this->faker;
+        $arabicFaker = FakerFactory::create('ar_SA');
 
     $groups = [
         'active' => $faker->boolean(),
@@ -15,4 +25,5 @@ $factory->define(Group::class, function (Faker $faker) {
         $groups[$lang] = ['name' => $tempFaker->word];
     }
     return $groups;
-});
+    }
+}

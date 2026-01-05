@@ -171,12 +171,10 @@ return [
         /*
          * Package Service Providers...
          */
-        Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
-        Astrotomic\Translatable\TranslatableServiceProvider::class,
-        Laravel\Passport\PassportServiceProvider::class,
-        Tightenco\Ziggy\ZiggyServiceProvider::class,
-        Barryvdh\Debugbar\ServiceProvider::class,
-        Felixkiss\UniqueWithValidator\ServiceProvider::class,
+        // Astrotomic\Translatable\TranslatableServiceProvider::class,
+        // Laravel\Passport\PassportServiceProvider::class,
+        // Barryvdh\Debugbar\ServiceProvider::class,
+
         /*
          * Application Service Providers...
          */
@@ -185,7 +183,6 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-        // Jenssegers\Mongodb\MongodbServiceProvider::class,
         Maatwebsite\Excel\ExcelServiceProvider::class,
 
     ],
@@ -238,7 +235,6 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-        'Unit' => Unit::class,
         'Excel' => Maatwebsite\Excel\Facades\Excel::class,
     ],
 
