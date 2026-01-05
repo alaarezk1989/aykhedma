@@ -1,0 +1,23 @@
+<?php
+
+namespace Database\Seeders;
+use Illuminate\Database\Seeder;
+use App\Models\Product;
+use App\Models\ProductImage;
+class ProductsSeeder extends Seeder
+{
+    /**
+     * Run the database seeds.
+     *
+     * @return void
+     */
+    public function run()
+    {
+        Product::factory()->count(10)->create()->each(function ($product){
+            $num = random_int(2,9) ;
+            for ($i =0 ; $i <= $num ; $i++){
+                $product->images()->save(ProductImage::factory()->make());
+            }
+        });
+    }
+}

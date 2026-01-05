@@ -25,8 +25,6 @@ class UnitsController extends BaseController
 
     public function index()
     {
-        $this->authorize("index", Unit::class);
-
         $list = $this->unitRepository->search(request())->paginate(10);
 
         $list->appends(request()->all());

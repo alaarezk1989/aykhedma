@@ -37,9 +37,11 @@ class ProductController extends BaseController
         $this->authorizeResource(Product::class, "product");
     }
 
-    public function index()
+    /**
+     * @return \Illuminate\Contracts\View\View
+     */
+    public function index(): \Illuminate\Contracts\View\View
     {
-        $this->authorize("index", Product::class);
         $list = $this->productRepository->search(request())->paginate(10);
         $list->appends(request()->all());
         $count = $this->productRepository->search(request())->count();
@@ -51,9 +53,9 @@ class ProductController extends BaseController
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\View\View
      */
-    public function create()
+    public function create(): \Illuminate\Contracts\View\View
     {
         $units = Unit::all();
         $categories = Category::all();
@@ -81,7 +83,7 @@ class ProductController extends BaseController
      * @param Product $product
      * @return \Illuminate\Contracts\View\View
      */
-    public function edit(Product $product)
+    public function edit(Product $product): \Illuminate\Contracts\View\View
     {
         $units = Unit::all();
         $categories = Category::all();
@@ -118,11 +120,12 @@ class ProductController extends BaseController
     }
 
     /**
+     * @param Product $product
      * @param ProductImage $productImage
-     * @return \Illuminate\Http\JsonResponse
+     * @return \Illuminate\Http\RedirectResponse
      * @throws \Exception
      */
-    public function deleteImage(Product $product, ProductImage $productImage)
+    public function deleteImage(Product $product, ProductImage $productImage): \Illuminate\Http\RedirectResponse
     {
         $result = $this->productService->deleteImage($product, $productImage);
 

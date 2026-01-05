@@ -3,10 +3,15 @@
 namespace App\Repositories;
 
 use App\Models\ShippingCompany;
+use Illuminate\Http\Request;
 
 class ShippingCompanyRepository
 {
-  public function searchFromRequest($request)
+    /**
+     * @param Request $request
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function searchFromRequest(Request $request)
     {
         $shippingCompanies = ShippingCompany::orderBy('id', 'DESC');
         if ($request->has('name') && !empty($request->get('name'))) {

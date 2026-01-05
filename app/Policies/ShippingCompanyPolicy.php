@@ -23,6 +23,7 @@ class ShippingCompanyPolicy
         if (!$user->isTypeOf(UserTypes::ADMIN)) {
             return false;
         }
+        return null;
     }
 
     /**
@@ -31,9 +32,9 @@ class ShippingCompanyPolicy
      * @param User $user
      * @return bool
      */
-    public function index(User $user)
+    public function viewAny(User $user)
     {
-        return $user->hasAccess("admin.shippingCompanies.index");
+        return $user->hasAccess("admin.shipping_companies.index");
     }
 
     /**

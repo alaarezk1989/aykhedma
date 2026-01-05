@@ -23,7 +23,6 @@ class CancelReasonController extends BaseController
 
     public function index()
     {
-        $this->authorize("index", CancelReason::class);
         $list = $this->cancelReasonRepository->search(request())->paginate(10);
         $list->appends(request()->all());
 

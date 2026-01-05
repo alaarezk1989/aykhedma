@@ -26,12 +26,12 @@ class BranchPolicy
     }
 
     /**
-     * Determine whether the user can view the branch index.
+     * Determine whether the user can view the unit index.
      *
      * @param User $user
      * @return bool
      */
-    public function index(User $user)
+    public function viewAny(User $user)
     {
         if ($user->type == UserTypes::ADMIN) {
             return $user->hasAccess("admin.branches.index");

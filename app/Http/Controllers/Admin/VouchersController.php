@@ -29,7 +29,6 @@ class VouchersController extends BaseController
 
     public function index()
     {
-        $this->authorize("index", Voucher::class);
         $list = $this->voucherRepository->search(request());
         $list = $list->paginate(10);
         $list->appends(request()->all());

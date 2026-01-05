@@ -11,8 +11,8 @@ namespace App\Http\Services;
 use App\Models\User;
 use Exception;
 use Illuminate\Contracts\Auth\Authenticatable;
-use Nexmo\Client;
-use Nexmo\Client\Credentials\Basic;
+use Vonage\Client;
+use Vonage\Client\Credentials\Basic;
 
 class NexmoSMSService implements SMSProviderInterface
 {

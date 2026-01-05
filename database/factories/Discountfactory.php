@@ -1,6 +1,6 @@
 <?php
 
-/* @var $factory \Illuminate\Database\Eloquent\Factory */
+namespace Database\Factories;
 
 use App\Models\Discount;
 use App\Models\Activity;
@@ -8,11 +8,18 @@ use App\Models\Branch;
 use App\Models\Vendor;
 use App\Constants\PromotionTypes;
 use Faker\Generator as Faker;
-use Faker\Factory;
+use Faker\Factory as FakerFactory;
+use Illuminate\Support\Facades\Config;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
-$factory->define(Discount::class, function (Faker $faker) {
+class DiscountFactory extends Factory
+{
+    protected $model = Discount::class;
 
-    $arabicFaker = Factory::create("ar_SA");
+    public function definition(): array
+    {
+        $faker = $this->faker;
+        $arabicFaker = FakerFactory::create("ar_SA");
 
     $discount = [
         "from_date" => $faker->date($format = 'Y-m-d', $max = 'now'),
@@ -36,4 +43,5 @@ $factory->define(Discount::class, function (Faker $faker) {
     }
 
     return $discount;
-});
+    }
+}

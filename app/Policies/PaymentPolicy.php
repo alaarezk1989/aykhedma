@@ -14,7 +14,7 @@ class PaymentPolicy
      * Determine whether the user can view the payment index.
      *
      * @param User $user
-     * @return bool
+     * @return bool|null
      */
     public function before(User $user)
     {

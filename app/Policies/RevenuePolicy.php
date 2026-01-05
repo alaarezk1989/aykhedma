@@ -14,7 +14,7 @@ class RevenuePolicy
      * Determine whether the user can view the revenue index.
      *
      * @param User $user
-     * @return bool
+     * @return bool|null
      */
     public function before(User $user)
     {

@@ -12,10 +12,10 @@ class VendorPolicy
     use HandlesAuthorization;
 
     /**
-     * Determine whether the user can view the Vendor index.
+     * Determine whether the user can view the unit index.
      *
      * @param User $user
-     * @return bool
+     * @return bool|null
      */
     public function before(User $user)
     {
@@ -23,15 +23,16 @@ class VendorPolicy
         if (!$user->isTypeOf(UserTypes::ADMIN)) {
             return false;
         }
+        return null;
     }
 
     /**
-     * Determine whether the user can view the Vendor index.
+     * Determine whether the user can view the unit index.
      *
      * @param User $user
      * @return bool
      */
-    public function index(User $user)
+    public function viewAny(User $user)
     {
         return $user->hasAccess("admin.vendors.index");
     }

@@ -3,13 +3,13 @@
 namespace App\Repositories;
 
 use App\Models\Vendor;
-use Symfony\Component\HttpFoundation\Request;
+use Illuminate\Http\Request;
 
 class VendorRepository
 {
     /**
-     * @param $request
-     * @return $this|mixed
+     * @param Request $request
+     * @return \Illuminate\Database\Eloquent\Builder
      */
     public function search(Request $request)
     {

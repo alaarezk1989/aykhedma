@@ -24,8 +24,6 @@ class SubscribersController extends BaseController
 
     public function index()
     {
-        $this->authorize("index", Subscriber::class);
-
         $list = $this->subscriberRepository->search(request())->paginate(10);
 
         return View::make('admin.subscribers.index', ['list' => $list]);

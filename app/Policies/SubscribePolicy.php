@@ -12,26 +12,27 @@ class SubscribePolicy
     use HandlesAuthorization;
 
     /**
-     * Determine whether the user can view the subscribe index.
+     * Determine whether the user can view the unit index.
      *
      * @param User $user
-     * @return bool
+     * @return bool|null
      */
     public function before(User $user)
     {
         // check if the user is not admin return false before access any rolls
-        if (!$user->isTypeOf(UserTypes::ADMIN) && !$user->isTypeOf(UserTypes::VENDOR)) {
+        if (!$user->isTypeOf(UserTypes::ADMIN)) {
             return false;
         }
+        return null;
     }
 
     /**
-     * Determine whether the user can view the subscribe index.
+     * Determine whether the user can view the unit index.
      *
      * @param User $user
      * @return bool
      */
-    public function index(User $user)
+    public function viewAny(User $user)
     {
         return $user->hasAccess("admin.subscribes.index");
     }

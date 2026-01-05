@@ -1,15 +1,23 @@
 <?php
 
-/* @var $factory \Illuminate\Database\Eloquent\Factory */
+namespace Database\Factories;
 
 use App\Constants\ObjectTypes as ObjectTypes;
 use App\Models\Shipment;
 use App\Models\Location;
-use Faker\Factory;
+use Faker\Factory as FakerFactory;
 use Faker\Generator as Faker;
+use Illuminate\Support\Facades\Config;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
-$factory->define(Shipment::class, function (Faker $faker) {
-    $arabicFaker = Factory::create('ar_SA');
+class ShipmentFactory extends Factory
+{
+    protected $model = Shipment::class;
+
+    public function definition(): array
+    {
+        $faker = $this->faker;
+        $arabicFaker = FakerFactory::create('ar_SA');
     $trips = Shipment::whereRaw('(`_lft`+1)', '`_rgt`')->get();
     $locations = Location::all();
     $trip = [
@@ -34,4 +42,5 @@ $factory->define(Shipment::class, function (Faker $faker) {
         ];
     }
     return $trip;
-});
+    }
+}

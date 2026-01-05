@@ -15,7 +15,7 @@ class LogPolicy
      * Determine whether the user can view the Log index.
      *
      * @param User $user
-     * @return bool
+     * @return bool|null
      */
     public function before(User $user)
     {

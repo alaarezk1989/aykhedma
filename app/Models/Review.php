@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+
 use App\Events\VendorReviewsCreatedEvent;
 use App\Events\VendorReviewsDeletedEvent;
 use App\Events\VendorReviewsEditedEvent;
@@ -11,6 +13,7 @@ use Carbon\Carbon;
 
 class Review extends Model
 {
+    use HasFactory;
     use SoftDeletes;
 
     protected $table = "reviews";

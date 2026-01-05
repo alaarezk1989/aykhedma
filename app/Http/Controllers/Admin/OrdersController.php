@@ -36,7 +36,6 @@ class OrdersController extends BaseController
      */
     public function index()
     {
-        $this->authorize("index", Order::class);
         $status = OrderStatus::getList();
         $types = VendorTypes::getList();
         $paymentTypes = PaymentTypes::getList();

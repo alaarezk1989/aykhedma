@@ -1,5 +1,6 @@
 <?php
 
+
 if (! function_exists('route')) {
     /**
      * Generate the URL to a named route.
@@ -11,9 +12,19 @@ if (! function_exists('route')) {
      */
     function route($name, $parameters = [], $absolute = true)
     {
-        if (!isset($parameters['lang'])) {
-            $parameters['lang'] = app()->getLocale();
+        if (! is_array($parameters)) {
+            $parameters = [app()->getLocale(), $parameters];
+        } elseif (! isset($parameters['lang'])) {
+            $locales = array_keys(config('app.locales', []));
+            if (! isset($parameters[0]) || ! in_array($parameters[0], $locales)) {
+                $parameters = array_merge(['lang' => app()->getLocale()], $parameters);
+
+                if (count(array_filter(array_keys($parameters), 'is_string')) < count($parameters)) {
+                    $parameters = array_values($parameters);
+                }
+            }
         }
+
         return app('url')->route($name, $parameters, $absolute);
     }
 }
@@ -37,7 +48,7 @@ if (! function_exists('trans')) {
             $key = 'translations.'.$key;
         }
 
-        return app('translator')->trans($key, $replace, $locale);
+        return app('translator')->get($key, $replace, $locale);
     }
 }
 

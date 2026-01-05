@@ -15,7 +15,7 @@ class LocationPolicy
      * Determine whether the user can view the location index.
      *
      * @param User $user
-     * @return bool
+     * @return bool|null
      */
     public function before(User $user)
     {
@@ -26,12 +26,12 @@ class LocationPolicy
     }
 
     /**
-     * Determine whether the user can view the location index.
+     * Determine whether the user can view the unit index.
      *
      * @param User $user
      * @return bool
      */
-    public function index(User $user)
+    public function viewAny(User $user): bool
     {
         return $user->hasAccess("admin.locations.index");
     }

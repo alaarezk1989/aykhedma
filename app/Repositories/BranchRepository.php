@@ -7,14 +7,14 @@ use App\Models\Branch;
 use App\Models\BranchProduct;
 use App\Models\Permissible;
 use Illuminate\Support\Facades\Auth;
-use Symfony\Component\HttpFoundation\Request;
+use Illuminate\Http\Request;
 
 class BranchRepository
 {
 
     /**
-     * @param $request
-     * @return $this|mixed
+     * @param Request $request
+     * @return \Illuminate\Database\Eloquent\Builder
      */
     public function search(Request $request)
     {

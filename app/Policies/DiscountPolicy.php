@@ -15,7 +15,7 @@ class DiscountPolicy
      * Determine whether the user can view the Discount index.
      *
      * @param User $user
-     * @return bool
+     * @return bool|null
      */
     public function before(User $user)
     {
@@ -26,12 +26,12 @@ class DiscountPolicy
     }
 
     /**
-     * Determine whether the user can view the Discount index.
+     * Determine whether the user can view the discount index.
      *
      * @param User $user
      * @return bool
      */
-    public function index(User $user)
+    public function viewAny(User $user): bool
     {
         return $user->hasAccess("admin.discounts.index");
     }

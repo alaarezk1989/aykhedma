@@ -31,7 +31,7 @@ class BranchProductsController extends BaseController
 
     public function index(Branch $branch)
     {
-        $this->authorize("index", [BranchProduct::class, $branch]);
+        $this->authorize("viewAny", [BranchProduct::class, $branch]);
         $list = $branch->products;
         $branches = Branch::query()->where('active', true)
             ->where('type', $branch->type)

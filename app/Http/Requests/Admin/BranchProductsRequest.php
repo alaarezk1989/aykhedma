@@ -25,7 +25,13 @@ class BranchProductsRequest extends FormRequest
     {
         return [
             'category_id' => 'required',
-            'product_id' => 'required|unique_with:branch_products,branch_id, deleted_at,2 = id',
+            'product_id' => [
+                'required',
+                \Illuminate\Validation\Rule::unique('branch_products')
+                    ->where('branch_id', $this->branch_id)
+                    ->whereNull('deleted_at')
+                    ->ignore($this->id),
+            ],
             'price' => 'required|numeric',
         ];
     }
@@ -35,11 +41,11 @@ class BranchProductsRequest extends FormRequest
         return [
             'category_id.required'=>trans('category_id_required'),
             'product_id.required'=>trans('product_id_required'),
-            'product_id.unique_with'=>trans('product_id_unique_with'),
+            'product_id.unique'=>trans('product_id_unique_with'),
         ];
     }
 
-    protected function validationData()
+    public function validationData()
     {
         return array_merge($this->request->all(), [
             'deleted_at' => null

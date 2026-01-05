@@ -29,7 +29,6 @@ class CouponsController extends BaseController
 
     public function index(Request $request)
     {
-        $this->authorize("index", Coupon::class);
         $coupons = $this->couponRepository->searchFromRequest(request())->paginate(10);
         $coupons->appends(request()->all());
         return view('admin.promotions.coupons.index', compact('coupons'));

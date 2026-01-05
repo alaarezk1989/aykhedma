@@ -2,10 +2,15 @@
 
 namespace App\Repositories;
 use App\Models\Coupon;
+use Illuminate\Http\Request;
 
 class CouponRepository
 {
-    public function searchFromRequest($request)
+    /**
+     * @param Request $request
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function searchFromRequest(Request $request)
     {
         $coupons = Coupon::orderBy('id', 'DESC');
 

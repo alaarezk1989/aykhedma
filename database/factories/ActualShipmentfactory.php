@@ -1,16 +1,23 @@
 <?php
 
-/* @var $factory \Illuminate\Database\Eloquent\Factory */
+namespace Database\Factories;
 
 use App\Models\ActualShipment;
 use App\Models\Location;
 use App\Constants\ActualShipmentStatus;
-use Faker\Factory;
+use Faker\Factory as FakerFactory;
 use Faker\Generator as Faker;
+use Illuminate\Support\Facades\Config;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
-$factory->define(ActualShipment::class, function (Faker $faker) {
+class ActualShipmentFactory extends Factory
+{
+    protected $model = ActualShipment::class;
 
-    $arabicFaker = Factory::create('ar_SA');
+    public function definition(): array
+    {
+        $faker = $this->faker;
+        $arabicFaker = FakerFactory::create('ar_SA');
     $actualShipments = ActualShipment::whereRaw('(`_lft`+1)', '`_rgt`')->get();
     $locations = Location::all();
     $shipments = Location::all();
@@ -38,4 +45,5 @@ $factory->define(ActualShipment::class, function (Faker $faker) {
     }
 
     return $actualShipment;
-});
+    }
+}

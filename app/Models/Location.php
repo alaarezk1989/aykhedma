@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+
 use Illuminate\Database\Eloquent\Model;
 use Astrotomic\Translatable\Translatable;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -12,6 +14,7 @@ use App\Events\LocationCreatedEvent ;
 
 class Location extends Model
 {
+    use HasFactory;
     use NodeTrait;
     use Translatable;
     use SoftDeletes;

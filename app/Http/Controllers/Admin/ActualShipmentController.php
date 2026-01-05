@@ -38,7 +38,6 @@ class ActualShipmentController extends BaseController
 
     public function index(Request $request)
     {
-        $this->authorize("index", ActualShipment::class);
         $list = $this->actualShipmentRepository->searchFromRequest(request())   ;
 
         if ($request->filled('sub')) {
@@ -101,7 +100,7 @@ class ActualShipmentController extends BaseController
 
     public function destroy(ActualShipment $actualShipment)
     {
-        if (count($actualShipment->children)) {
+        if ($actualShipment->children->count()) {
             return redirect()->back()->with('danger', trans('cant_delete_this_item_related_with_sub_shipment'));
         }
 

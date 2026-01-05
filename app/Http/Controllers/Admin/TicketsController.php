@@ -33,7 +33,6 @@ class TicketsController extends BaseController
 
     public function index()
     {
-        $this->authorize("index", Ticket::class);
         $status = TicketStatus::getList();
         $ticketReasons= TicketReasons::all();
         $ticketsCount = $this->ticketRepository->search(request())->count();

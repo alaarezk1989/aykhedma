@@ -17,7 +17,7 @@ class OrderPolicy
      * @param User $user
      * @return bool
      */
-    public function index(User $user)
+    public function viewAny(User $user): bool
     {
         if ($user->type == UserTypes::ADMIN) {
             return $user->hasAccess("admin.orders.index");
@@ -25,6 +25,7 @@ class OrderPolicy
         if ($user->type == UserTypes::VENDOR) {
             return $user->hasAccess("vendor.orders.index");
         }
+        return false; // Added a default return for cases not covered by if statements
     }
 
     /**

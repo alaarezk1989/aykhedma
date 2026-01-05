@@ -1,12 +1,21 @@
 <?php
 
+namespace Database\Factories;
+
 use Faker\Generator as Faker;
 use App\Models\Permission;
-use Faker\Factory;
+use Faker\Factory as FakerFactory;
+use Illuminate\Support\Facades\Config;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
-$factory->define(Permission::class, function (Faker $faker) {
+class PermissionFactory extends Factory
+{
+    protected $model = Permission::class;
 
-    $arabicFaker = Factory::create("ar_SA");
+    public function definition(): array
+    {
+        $faker = $this->faker;
+        $arabicFaker = FakerFactory::create("ar_SA");
 
     $permission = [
         "identifier" => str_replace(' ', '.', $faker->word),
@@ -21,4 +30,5 @@ $factory->define(Permission::class, function (Faker $faker) {
     }
 
     return $permission;
-});
+    }
+}
