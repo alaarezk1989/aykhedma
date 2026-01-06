@@ -8,7 +8,7 @@
             <div class="page-header">
                 <h4 class="page-title">{{trans('branches')}}</h4>
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="/" class="text-light-color">{{trans('home')}}</a></li>
+                    <li class="breadcrumb-item"><a href="{{ route('admin.home.index') }}" class="text-light-color">{{trans('home')}}</a></li>
                     <li class="breadcrumb-item active" aria-current="page">{{trans('branches')}}</li>
                 </ol>
             </div>
@@ -142,10 +142,10 @@
                                                                 <i class="fa fa-trash"></i> {{trans('remove')}}
                                                             </button>
                                                             @endcan
-                                                            @can('index', [BranchProduct::class ,$branch])
+                                                            @can('viewAny', [BranchProduct::class ,$branch])
                                                                 <a class="dropdown-item has-icon" href="{{ route('admin.branch.products.index', ['branch' => $branch->id]) }}"><i class="fa fa-eye"></i> {{trans('manage_products')}}</a>
                                                             @endcan
-                                                            @can('index', [BranchZone::class ,$branch])
+                                                            @can('viewAny', [BranchZone::class ,$branch])
                                                             <a class="dropdown-item has-icon" href="{{ route('admin.branch.zones.index', ['branch' => $branch->id]) }}"><i class="fa fa-map-marker"></i> {{trans('manage_zones')}}</a>
                                                             @endcan
 

@@ -8,7 +8,7 @@
             <div class="page-header">
                 <h4 class="page-title">{{trans('cancel_reasons')}}</h4>
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="/" class="text-light-color">{{trans('home')}}</a></li>
+                    <li class="breadcrumb-item"><a href="{{ route('admin.home.index') }}" class="text-light-color">{{trans('home')}}</a></li>
                     <li class="breadcrumb-item active" aria-current="page">{{trans('cancel_reasons')}}</li>
                 </ol>
             </div>

@@ -72,7 +72,7 @@ class ActualShipmentController extends BaseController
             return back()->with('danger', $this->actualShipmentService->fillFromRequest($request));
         }
 
-        return redirect(route('admin.actual-shipments.index') . '?sub=' . $request->input('parent_id'))
+        return redirect(route('admin.actual-shipments.index', ['sub' => $request->input('parent_id')]))
             ->with('success', trans('item_added_successfully'));
     }
 

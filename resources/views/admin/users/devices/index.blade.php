@@ -10,7 +10,7 @@
             <div class="page-header">
                 <h4 class="page-title">{{trans('user_devices')}}</h4>
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="/" class="text-light-color">{{trans('home')}}</a></li>
+                    <li class="breadcrumb-item"><a href="{{ route('admin.home.index') }}" class="text-light-color">{{trans('home')}}</a></li>
                     <li class="breadcrumb-item"><a href="{{ route('admin.users.index') }}" class="text-light-color">{{trans('users')}}</a></li>
                     <li class="breadcrumb-item active" aria-current="page">{{trans('user_devices')}}</li>
                 </ol>

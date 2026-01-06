@@ -8,7 +8,7 @@
         <div class="page-header">
             <h4 class="page-title">{{ trans('groups') }}</h4>
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="/" class="text-light-color">{{ trans('home') }}</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('admin.home.index') }}" class="text-light-color">{{ trans('home') }}</a></li>
                 <li class="breadcrumb-item active" aria-current="page">{{ trans('groups') }}</li>
             </ol>
         </div>
@@ -96,7 +96,7 @@
                                                                 <i class="fa fa-trash"></i>  {{ trans('remove') }}
                                                             </button>
                                                         @endcan
-                                                        @can('index' , GroupPermission::class)
+                                                        @can('viewAny' , GroupPermission::class)
                                                         <a class="dropdown-item has-icon" href="{{ route('admin.group.permissions.index', ['group' => $group]) }}">
                                                             <i class="fa fa-edit"></i> {{ trans('permissions') }}
                                                         </a>

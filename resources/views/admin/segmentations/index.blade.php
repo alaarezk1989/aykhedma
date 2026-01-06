@@ -11,7 +11,7 @@ use \App\Constants\ClassTypes;
             <div class="page-header">
                 <h4 class="page-title">{{trans('segmentations')}}</h4>
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="/" class="text-light-color">{{trans('home')}}</a></li>
+                    <li class="breadcrumb-item"><a href="{{ route('admin.home.index') }}" class="text-light-color">{{trans('home')}}</a></li>
                     <li class="breadcrumb-item active" aria-current="page">{{trans('segmentations')}}</li>
                 </ol>
             </div>

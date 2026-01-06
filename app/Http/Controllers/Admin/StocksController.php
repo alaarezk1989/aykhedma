@@ -50,4 +50,10 @@ class StocksController extends BaseController
     {
         return $this->stockService->export();
     }
+
+    public function destroy(Stock $stock)
+    {
+        $stock->delete();
+        return redirect()->back()->with('success', trans('stock_deleted_successfully'));
+    }
 }

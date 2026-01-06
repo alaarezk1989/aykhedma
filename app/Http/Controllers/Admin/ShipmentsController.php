@@ -41,7 +41,7 @@ class ShipmentsController extends BaseController
     public function index(Request $request)
     {
 
-        $this->authorize("index", Shipment::class);
+
 
         $list = $this->shipmentRepository->searchFromRequest(request());
 
@@ -95,7 +95,7 @@ class ShipmentsController extends BaseController
             return back()->with('danger', $this->shipmentService->fillFromRequest($request));
         }
 
-        return redirect(route('admin.shipments.index') . '?sub=' . $request->input('parent_id'))
+        return redirect(route('admin.shipments.index', ['sub' => $request->input('parent_id')]))
             ->with('success', trans('item_added_successfully'));
     }
 
@@ -158,7 +158,7 @@ class ShipmentsController extends BaseController
     {
         $this->shipmentService->fillFromRequest($request, $shipment);
 
-        return redirect(route('admin.shipments.index') . '?sub=' . $request->input('parent_id'))
+        return redirect(route('admin.shipments.index', ['sub' => $request->input('parent_id')]))
             ->with('success', trans('item_updated_successfully'));
     }
 

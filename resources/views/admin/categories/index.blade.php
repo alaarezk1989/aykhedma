@@ -8,7 +8,7 @@
             <div class="page-header">
                 <h4 class="page-title">{{trans('categories')}}</h4>
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="/" class="text-light-color">{{trans('home')}}</a></li>
+                    <li class="breadcrumb-item"><a href="{{ route('admin.home.index') }}" class="text-light-color">{{trans('home')}}</a></li>
                     <li class="breadcrumb-item active" aria-current="page">{{trans('categories')}}</li>
                 </ol>
             </div>
@@ -58,7 +58,7 @@
                                 </span>
 
                                 <span class="table-add float-right">
-                                    <a href="{{route('admin.categories.index')}}?view=tree" class="btn btn-icon">
+                                    <a href="{{ route('admin.categories.index', ['view' => 'tree']) }}" class="btn btn-icon">
                                         <i class="fa fa-tree fa-1x" aria-hidden="true"></i>
                                     </a>
                                 </span>
