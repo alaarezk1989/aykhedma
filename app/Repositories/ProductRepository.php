@@ -4,7 +4,7 @@ namespace App\Repositories;
 
 use App\Models\Product;
 use App\Models\BranchProduct;
-use Symfony\Component\HttpFoundation\Request;
+use Illuminate\Http\Request;
 
 class ProductRepository
 {
@@ -44,8 +44,8 @@ class ProductRepository
     }
 
     /**
-     * @param $request
-     * @return $this|mixed
+     * @param Request $request
+     * @return \Illuminate\Database\Eloquent\Builder
      */
     public function search(Request $request)
     {

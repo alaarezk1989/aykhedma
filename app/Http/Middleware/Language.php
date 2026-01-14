@@ -6,7 +6,7 @@ use Closure;
 use App;
 use Config;
 use Session;
-use Symfony\Component\HttpFoundation\Request;
+use Illuminate\Http\Request;
 
 class Language
 {
@@ -20,20 +20,27 @@ class Language
             App::setLocale(Config::get('app.fallback_locale'));
         }
 
-        if ($request->method() === 'GET') {
+        if ($request->getMethod() === 'GET') {
             $segment = $request->segment(1);
 
-            if (!array_key_exists($segment, config('app.locales'))) {
-
-                $segments = $request->segments();
-                $segments = array_prepend($segments, App::getLocale());
-
-                return redirect()->to(implode('/', $segments));
+            if ($segment && array_key_exists($segment, config('app.locales'))) {
+                // First segment is a valid locale, set it as the app locale
+                Config::set('app.locale', $segment);
+                App::setLocale($segment);
+                Session::put('locale', $segment);
+            } elseif (!in_array($segment, ['api', 'client'])) {
+                // Segment is missing or not a known prefix, prepend locale
+                $locale = App::getLocale();
+                $locales = array_keys(config('app.locales', []));
+                
+                // Only redirect if we have valid locales configured
+                if (!empty($locales)) {
+                    $segments = $request->segments();
+                    $segments = array_merge([$locale], $segments);
+                    
+                    return redirect()->to('/' . implode('/', $segments));
+                }
             }
-
-            Config::set('app.locale', $segment);
-            App::setLocale($segment);
-            Session::put('locale', $segment);
         }
 
         return $next($request);

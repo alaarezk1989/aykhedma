@@ -26,14 +26,14 @@ class CancelReasonPolicy
     }
 
     /**
-     * Determine whether the user can view the CancelReason index.
+     * Determine whether the user can view the cancelReason index.
      *
      * @param User $user
      * @return bool
      */
-    public function index(User $user)
+    public function viewAny(User $user)
     {
-        return $user->hasAccess("admin.cancelReasons.index");
+        return $user->hasAccess("admin.cancel_reasons.index");
     }
 
     /**

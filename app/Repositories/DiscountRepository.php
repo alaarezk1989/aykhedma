@@ -3,10 +3,15 @@
 namespace App\Repositories;
 
 use App\Models\Discount;
+use Illuminate\Http\Request;
 
 class DiscountRepository
 {
-    public function searchFromRequest($request)
+    /**
+     * @param Request $request
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function searchFromRequest(Request $request)
     {
         $discounts = Discount::orderBy('id', 'DESC');
         if ($request->has('title') && !empty($request->get('title'))) {

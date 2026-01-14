@@ -3,10 +3,14 @@
 namespace App\Repositories;
 
 use App\Models\CancelReason;
-use Symfony\Component\HttpFoundation\Request;
+use Illuminate\Http\Request;
 
 class CancelReasonRepository
 {
+    /**
+     * @param Request $request
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
     public function search(Request $request)
     {
         $cancelReasons = CancelReason::query()->with('translations')->orderByDesc("id");

@@ -24,7 +24,6 @@ class StocksController extends BaseController
 
     public function index()
     {
-        $this->authorize("index", Stock::class);
         $list = $this->stockRepository->search(request())->paginate(10);
         $list->appends(request()->all());
         return View::make('admin.stocks.index', ['list' => $list]);
@@ -50,5 +49,11 @@ class StocksController extends BaseController
     public function export()
     {
         return $this->stockService->export();
+    }
+
+    public function destroy(Stock $stock)
+    {
+        $stock->delete();
+        return redirect()->back()->with('success', trans('stock_deleted_successfully'));
     }
 }

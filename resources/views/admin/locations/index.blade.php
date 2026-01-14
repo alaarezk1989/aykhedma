@@ -8,7 +8,7 @@
             <div class="page-header">
                 <h4 class="page-title">{{ trans('locations') ."( ".trans('zones'). ")" }}</h4>
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="/" class="text-light-color">{{ trans('home') }}</a></li>
+                    <li class="breadcrumb-item"><a href="{{ route('admin.home.index') }}" class="text-light-color">{{ trans('home') }}</a></li>
                     <li class="breadcrumb-item active" aria-current="page">{{ trans('locations') }}</li>
                 </ol>
             </div>
@@ -52,12 +52,12 @@
                         <div class="card">
                             <div class="card-header">
                                 <span class="table-add float-right">
-                                    @can("create", Location::class)
+                                    @can("create", \App\Models\Location::class)
                                         <a href="{{ route('admin.locations.create') }}" class="btn btn-icon"><i class="fa fa-plus fa-1x" aria-hidden="true"></i></a>
                                     @endcan
                                 </span>
                                 <span class="table-add float-right">
-                                    <a href="{{route('admin.locations.index')}}?view=tree" class="btn btn-icon">
+                                    <a href="{{ route('admin.locations.index', ['view' => 'tree']) }}" class="btn btn-icon">
                                             <i class="fa fa-tree fa-1x" aria-hidden="true"></i>
                                     </a>
                                 </span>

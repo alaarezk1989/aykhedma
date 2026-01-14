@@ -42,7 +42,6 @@ class BannersController extends BaseController
 
     public function index()
     {
-        $this->authorize("index", Banner::class);
         $list = $this->bannerRepository->search(request())->paginate(10);
         $list->appends(request()->all());
         return View::make('admin.banners.index', ['list' => $list]);

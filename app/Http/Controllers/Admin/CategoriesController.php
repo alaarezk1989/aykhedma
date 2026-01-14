@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Admin\Requests\CategoryRequest;
+use App\Http\Requests\Admin\CategoryRequest;
 use App\Http\Controllers\BaseController;
 use App\Http\Services\CategoryService;
 use App\Http\Services\UploaderService;
@@ -27,8 +27,6 @@ class CategoriesController extends BaseController
 
     public function index(Request $request)
     {
-        $this->authorize("index", Category::class);
-
         $list = $this->categoryRepository->searchFromRequest(request());
         if ($request->query->get('view') == 'tree') {
             return View::make('admin.categories.tree', [
@@ -65,7 +63,7 @@ class CategoriesController extends BaseController
 
     public function destroy(Category $category)
     {
-        if (count($category->products)) {
+        if ($category->products->count()) {
             return redirect()->back()->with('danger', trans('cant_delete_this_cat_related_with_products'));
         }
 

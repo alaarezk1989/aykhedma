@@ -3,7 +3,7 @@
 namespace App\Repositories;
 
 use App\Models\Stock;
-use Symfony\Component\HttpFoundation\Request;
+use Illuminate\Http\Request;
 
 class StockRepository
 {
@@ -16,6 +16,10 @@ class StockRepository
         return $inAmount - $outAmount;
     }
 
+    /**
+     * @param Request $request
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
     public function search(Request $request)
     {
         $stocks = Stock::query()->orderByDesc("id");

@@ -4,12 +4,14 @@ namespace App\Models;
 
 use App\Events\UnitDeletedEvent;
 use App\Events\UnitEditedEvent;
-use Dimsav\Translatable\Translatable;
+use Astrotomic\Translatable\Translatable;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Unit extends Model
 {
+    use HasFactory;
     use Translatable;
     use SoftDeletes;
     protected $table = 'units';

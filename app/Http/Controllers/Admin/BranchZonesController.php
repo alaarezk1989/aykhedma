@@ -22,7 +22,7 @@ class BranchZonesController extends BaseController
 
     public function index(Branch $branch)
     {
-        $this->authorize("index", [BranchZone::class, $branch]);
+        $this->authorize("viewAny", [BranchZone::class, $branch]);
         $list = $branch->zones;
         return View::make('admin.branches.zones.index', ['list' => $list,'branch'=>$branch]);
     }

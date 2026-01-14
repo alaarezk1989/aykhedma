@@ -2,7 +2,8 @@
 
 namespace App\Models;
 
-use Dimsav\Translatable\Translatable;
+use Astrotomic\Translatable\Translatable;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Events\ActivityEditedEvent;
@@ -11,6 +12,7 @@ use App\Events\ActivityCreatedEvent;
 
 class Activity extends Model
 {
+    use HasFactory;
     use Translatable;
     use SoftDeletes;
     protected $table = 'activities';
@@ -25,7 +27,7 @@ class Activity extends Model
      */
     public function getNameAttribute()
     {
-        return $this->getTranslationByLocaleKey(app()->getLocale())->name;
+        return optional($this->getTranslationByLocaleKey(app()->getLocale()))->name;
     }
 
     /**

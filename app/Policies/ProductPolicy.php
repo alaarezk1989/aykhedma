@@ -15,7 +15,7 @@ class ProductPolicy
      * Determine whether the user can view the index.
      *
      * @param User $user
-     * @return bool
+     * @return bool|null
      */
     public function before(User $user)
     {
@@ -26,12 +26,12 @@ class ProductPolicy
     }
 
     /**
-     * Determine whether the user can view the  index.
+     * Determine whether the user can view the index.
      *
      * @param User $user
      * @return bool
      */
-    public function index(User $user)
+    public function viewAny(User $user)
     {
         return $user->hasAccess("admin.products.index");
     }

@@ -11,12 +11,21 @@
   |
  */
 
+// Define specific non-localized routes first (they match before {lang?} patterns)
+use App\Http\Controllers\Web\AuthController;
 
-Route::prefix('{lang?}')->attribute('namespace', 'Web')->group(function () {
+Route::post('/attempt', [AuthController::class, 'attempt'])->name('web.auth.attempt');
+
+// Root route with language middleware handling
+Route::get('/', function () {
+    return redirect(route('web.auth.login'));
+});
+
+// Language-prefixed routes
+Route::prefix('{lang?}')->namespace('Web')->group(function () {
     Route::get('/', function () {
         return redirect(route('web.auth.login'));
     });
-    Route::post('/attempt', ['uses' => 'AuthController@attempt', 'as' => 'web.auth.attempt']);
     Route::get('/logout', ['uses' => 'AuthController@logout', 'as' => 'web.auth.logout']);
     Route::get('/login', ['uses' => 'AuthController@login', 'as' => 'web.auth.login']);
     Route::get('/register', ['uses' => 'AuthController@register', 'as' => 'web.auth.register']);
@@ -28,7 +37,7 @@ Route::prefix('{lang?}')->attribute('namespace', 'Web')->group(function () {
     Route::get('/search', ['uses' => 'SearchController@search', 'as' => 'web.search']);
 });
 
-Route::prefix('{lang?}')->attribute('namespace', 'Web')->middleware('auth:web')->group(function () {
+Route::prefix('{lang?}')->namespace('Web')->middleware('auth:web')->group(function () {
     Route::get('/user/profile', ['uses' => 'UserController@edit', 'as' => 'profile.edit']);
     Route::PUT('/user/profile', ['uses' => 'UserController@update', 'as' => 'profile.update']);
     Route::get('/user/password', ['uses' => 'UserController@editPassword', 'as' => 'password.edit']);
@@ -36,7 +45,7 @@ Route::prefix('{lang?}')->attribute('namespace', 'Web')->middleware('auth:web')-
     Route::get('/user/tickets', ['uses' => 'TicketsController@myTickets', 'as' => 'web.user.tickets']);
 });
 
-Route::prefix('{lang?}/admin')->attribute('namespace', 'Admin')->middleware('admin:web')->group(function () {
+Route::prefix('{lang?}/admin')->namespace('Admin')->middleware('admin:web')->group(function () {
     Route::get('/', ['uses' => 'HomeController@index', 'as' => 'admin.home.index']);
 
     Route::prefix('order/{order}')->group(function () {
@@ -163,7 +172,7 @@ Route::prefix('{lang?}/admin')->attribute('namespace', 'Admin')->middleware('adm
     Route::get('/reports/quantity/export', ['uses' => 'ReportsController@exportQuantity', 'as' => 'admin.reports.quantity.export']);
 });
 
-Route::prefix('{lang?}/vendor')->attribute('namespace', 'Vendor')->middleware('vendor:web')->group(function () {
+Route::prefix('{lang?}/vendor')->namespace('Vendor')->middleware('vendor:web')->group(function () {
     Route::get('/', ['uses' => 'HomeController@index', 'as' => 'vendor.home.index']);
     Route::resource('branches', 'BranchesController', ['as' => 'vendor']);
     Route::prefix("/branch/{branch}")->group(function () {

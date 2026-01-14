@@ -2,8 +2,10 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+
 use Illuminate\Database\Eloquent\Model;
-use Dimsav\Translatable\Translatable;
+use Astrotomic\Translatable\Translatable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Kalnoy\Nestedset\NodeTrait;
 use App\Events\LocationDeletedEvent ;
@@ -12,6 +14,7 @@ use App\Events\LocationCreatedEvent ;
 
 class Location extends Model
 {
+    use HasFactory;
     use NodeTrait;
     use Translatable;
     use SoftDeletes;
@@ -23,7 +26,7 @@ class Location extends Model
 
     public function getNameAttribute()
     {
-        return $this->getTranslationByLocaleKey(app()->getLocale())->name;
+        return optional($this->getTranslationByLocaleKey(app()->getLocale()))->name;
     }
 
     public function branch()

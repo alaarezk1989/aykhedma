@@ -8,7 +8,7 @@
             <div class="page-header">
                 <h4 class="page-title">{{trans('stocks')}}</h4>
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="/" class="text-light-color">{{trans('home')}}</a></li>
+                    <li class="breadcrumb-item"><a href="{{ route('admin.home.index') }}" class="text-light-color">{{trans('home')}}</a></li>
                     <li class="breadcrumb-item active" aria-current="page">{{trans('stocks')}}</li>
                 </ol>
             </div>
@@ -57,7 +57,7 @@
                             <div class="card-header">
                                 <span class="table-add float-right">
                                     <a href="{{route('admin.stocks.export', array_merge(request()->all(['filter_by','q','from_date','to_date'])))}}" class="btn btn-icon"><i class="fa fa-file-excel-o"></i></a>
-                                    @can("create", Stock::class)
+                                    @can("create", \App\Models\Stock::class)
                                     <a href="{{ route('admin.stocks.create') }}" class="btn btn-icon"><i class="fa fa-plus fa-1x" aria-hidden="true"></i></a>
                                     @endcan
                                 </span>
@@ -91,7 +91,7 @@
                                                 <th>{{ trans('vendor') }}</th>
                                                 <th>{{ trans('created_by') }}</th>
                                                 <th>{{ trans('created_at') }}</th>
-
+                                                <th style="width: 1px">{{ trans('actions') }}</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -106,6 +106,20 @@
                                                 <td>{{ $stock->product?$stock->product->branch->vendor->name:'-' }}</td>
                                                 <td>{{ $stock->user ? $stock->user->first_name." ".$stock->user->last_name : '-' }}</td>
                                                 <td>{{ $stock->created_at}}</td>
+                                                <td>
+                                                    <div class="btn-group dropdown">
+                                                        <button type="button" class="btn btn-sm btn-info m-b-5 m-t-5 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                            <i class="fa-cog fa"></i>
+                                                        </button>
+                                                        <div class="dropdown-menu">
+                                                            @can("delete", $stock)
+                                                                <button type="button" class="dropdown-item has-icon" data-toggle="modal" data-target="#delete_model_{{ $stock->id }}">
+                                                                    <i class="fa fa-trash"></i> {{ trans('remove') }}
+                                                                </button>
+                                                            @endcan
+                                                        </div>
+                                                    </div>
+                                                </td>
                                             </tr>
                                             @endforeach
                                         </tbody>
@@ -132,7 +146,7 @@
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
-                            <form action="{{ route('admin.stocks.destroy', ['branch' => $stock]) }}" method="Post" >
+                            <form action="{{ route('admin.stocks.destroy', ['stock' => $stock]) }}" method="Post" >
                                 @method('DELETE')
                                 @csrf
                                 <div class="modal-body">

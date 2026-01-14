@@ -2,12 +2,14 @@
 
 namespace App\Models;
 
-use Dimsav\Translatable\Translatable;
+use Astrotomic\Translatable\Translatable;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Company extends Model
 {
+    use HasFactory;
     use Translatable;
     use SoftDeletes;
     protected $appends = ['name'];

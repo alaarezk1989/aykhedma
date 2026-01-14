@@ -38,7 +38,6 @@ class ActualShipmentController extends BaseController
 
     public function index(Request $request)
     {
-        $this->authorize("index", ActualShipment::class);
         $list = $this->actualShipmentRepository->searchFromRequest(request())   ;
 
         if ($request->filled('sub')) {
@@ -73,7 +72,7 @@ class ActualShipmentController extends BaseController
             return back()->with('danger', $this->actualShipmentService->fillFromRequest($request));
         }
 
-        return redirect(route('admin.actual-shipments.index') . '?sub=' . $request->input('parent_id'))
+        return redirect(route('admin.actual-shipments.index', ['sub' => $request->input('parent_id')]))
             ->with('success', trans('item_added_successfully'));
     }
 
@@ -101,7 +100,7 @@ class ActualShipmentController extends BaseController
 
     public function destroy(ActualShipment $actualShipment)
     {
-        if (count($actualShipment->children)) {
+        if ($actualShipment->children->count()) {
             return redirect()->back()->with('danger', trans('cant_delete_this_item_related_with_sub_shipment'));
         }
 

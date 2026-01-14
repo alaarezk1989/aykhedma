@@ -31,7 +31,6 @@ class UserController extends BaseController
 
     public function index()
     {
-        $this->authorize("index", User::class);
         $list = $this->userRepository->search(request())->paginate(10);
         $list->appends(request()->all());
 

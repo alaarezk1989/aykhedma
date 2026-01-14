@@ -3,10 +3,15 @@
 namespace App\Repositories;
 
 use App\Models\Category;
+use Illuminate\Http\Request;
 
 class CategoryRepository
 {
-    public function searchFromRequest($request)
+    /**
+     * @param Request $request
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function searchFromRequest(Request $request)
     {
         $categories = Category::orderBy('id', 'DESC')
             ->when($request->get('active'), function ($categories) use ($request) {

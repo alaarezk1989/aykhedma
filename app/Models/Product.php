@@ -6,14 +6,16 @@ use App\Events\ProductCreatedEvent;
 use App\Events\ProductDeletedEvent;
 use App\Events\ProductEditedEvent;
 use App\Http\Services\UploaderService ;
-use Dimsav\Translatable\Translatable;
+use Astrotomic\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Product extends Model
 {
     use SoftDeletes;
     use Translatable;
+    use HasFactory;
 
     protected $appends = ['name', 'image'];
 
@@ -85,7 +87,7 @@ class Product extends Model
 
     public function getNameAttribute()
     {
-        return $this->getTranslationByLocaleKey(app()->getLocale())->name;
+        return optional($this->getTranslationByLocaleKey(app()->getLocale()))->name;
     }
 
     public function orderProduct()

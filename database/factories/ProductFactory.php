@@ -1,15 +1,25 @@
 <?php
 
+namespace Database\Factories;
+
 use Faker\Generator as Faker;
 use App\Models\Product ;
 use App\Models\Unit ;
 use App\Models\Category ;
-use Faker\Factory;
+use Faker\Factory as FakerFactory;
+use Illuminate\Support\Facades\Config;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
-$factory->define(Product::class, function (Faker $faker) {
-    $units = Unit::all() ;
+class ProductFactory extends Factory
+{
+    protected $model = Product::class;
+
+    public function definition(): array
+    {
+        $faker = $this->faker;
+        $units = Unit::all() ;
     $categories = Category::all() ;
-    $arabicFaker = Factory::create("ar_SA");
+    $arabicFaker = FakerFactory::create("ar_SA");
 
     $product = [
         "category_id" => $faker->randomElement($categories)->id ,
@@ -17,7 +27,7 @@ $factory->define(Product::class, function (Faker $faker) {
         "unit_value" => $faker->randomDigit,
         "code" => $faker->postcode ,
         "manufacturer" => $faker->company ,
-        "active" => $faker->boolean ,
+        "active" => $faker->boolean() ,
     ];
 
     foreach (Config::get('app.locales') as $lang => $language) {
@@ -32,4 +42,5 @@ $factory->define(Product::class, function (Faker $faker) {
     }
 
     return $product ;
-});
+    }
+}

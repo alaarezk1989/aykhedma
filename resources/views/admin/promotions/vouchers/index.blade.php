@@ -11,7 +11,7 @@ use \App\Constants\PromotionTypes;
             <div class="page-header">
                 <h4 class="page-title">{{ trans('vouchers') }}</h4>
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="/" class="text-light-color">{{ trans('home') }}</a></li>
+                    <li class="breadcrumb-item"><a href="{{ route('admin.home.index') }}" class="text-light-color">{{ trans('home') }}</a></li>
                     <li class="breadcrumb-item active" aria-current="page">{{ trans('vouchers') }}</li>
                 </ol>
             </div>
@@ -71,7 +71,7 @@ use \App\Constants\PromotionTypes;
                             <div class="card-header">
                                 <span class="table-add float-right">
                                     <a href="{{route('admin.vouchers.export', array_merge(request()->all(['filter_by','q','from_date','to_date'])))}}" class="btn btn-icon"><i class="fa fa-file-excel-o"></i></a>
-                                    @can("create", Voucher::class)
+                                    @can("create", \App\Models\Voucher::class)
                                         <a href="{{ route('admin.vouchers.create') }}" class="btn btn-icon"><i class="fa fa-plus fa-1x" aria-hidden="true"></i></a>
                                     @endcan
                                 </span>

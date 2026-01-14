@@ -15,7 +15,7 @@
             <div class="page-header">
                 <h4 class="page-title">{{trans('shipments')}}</h4>
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="/" class="text-light-color">{{trans('home')}}</a></li>
+                    <li class="breadcrumb-item"><a href="{{ route('admin.home.index') }}" class="text-light-color">{{trans('home')}}</a></li>
                     <li class="breadcrumb-item active" aria-current="page"><a href="{{ route('admin.shipments.index') }}" class="text-light-color">{{trans('shipments')}}</a></li>
                 </ol>
             </div>
@@ -125,7 +125,7 @@
                                             @foreach ($list as $data)
                                                 <tr>
                                                     <td>{{ $data->id }}</td>
-                                                    <td>@if($data->parent_id == null)<a href="{{ route('admin.shipments.index').'?sub='.$data->id  }}">{{ $data->title }}</a>@else  {{ $data->title }} @endif</td>
+                                                <td>@if($data->parent_id == null)<a href="{{ route('admin.shipments.index', ['sub' => $data->id]) }}">{{ $data->title }}</a>@else  {{ $data->title }} @endif</td>
                                                     <td>{{ $data->parent_id == null ? trans("parent"):trans("child") }}</td>
                                                     <td>{{ $data->parent_id }}</td>
                                                     <td>{{ $data->from ? $data->fromAddress->name : '-' }}</td>
@@ -194,7 +194,7 @@
                                 <div class="card-header">
                                     <span class="table-add float-right">
                                         @can("create", \App\Models\shipment::class)
-                                            <a href="{{ route('admin.shipments.create').'?sub='.$parent_id }}"
+                                            <a href="{{ route('admin.shipments.create', ['sub' => $parent_id]) }}"
                                                class="btn btn-icon"><i
                                                     class="fa fa-plus fa-1x" aria-hidden="true"></i></a>
                                         @endcan

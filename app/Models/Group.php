@@ -2,14 +2,16 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Dimsav\Translatable\Translatable;
+use Astrotomic\Translatable\Translatable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Events\GroupEditedEvent;
 use App\Events\GroupDeletedEvent;
 use App\Events\GroupCreatedEvent;
 class Group extends Model
 {
+    use HasFactory;
 
     use Translatable;
     use SoftDeletes;

@@ -1,16 +1,26 @@
 <?php
 
+namespace Database\Factories;
+
 use App\Models\Segmentation;
 use App\Models\Location;
 use App\Models\Company;
 use App\Models\Vendor;
 use App\Models\Branch;
 use App\Models\Activity;
-use Faker\Factory;
+use Faker\Factory as FakerFactory;
 use Faker\Generator as Faker;
+use Illuminate\Support\Facades\Config;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
-$factory->define(Segmentation::class, function (Faker $faker) {
-    $arabicFaker = Factory::create('ar_SA');
+class SegmentationFactory extends Factory
+{
+    protected $model = Segmentation::class;
+
+    public function definition(): array
+    {
+        $faker = $this->faker;
+        $arabicFaker = FakerFactory::create('ar_SA');
 
     $locations = Location::all();
     $companies = Company::all();
@@ -29,4 +39,5 @@ $factory->define(Segmentation::class, function (Faker $faker) {
     }
 
     return $segmentation;
-});
+    }
+}

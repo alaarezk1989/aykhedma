@@ -28,7 +28,6 @@ class ShippingCompaniesController extends BaseController
 
     public function index(Request $request)
     {
-        $this->authorize("index", ShippingCompany::class);
         $list = $this->shippingCompanyRepository->searchFromRequest(request());
         $list = $list->paginate(10);
         $list->appends(request()->all());

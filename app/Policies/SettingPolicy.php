@@ -15,7 +15,7 @@ class SettingPolicy
      * Determine whether the user can view the setting index.
      *
      * @param User $user
-     * @return bool
+     * @return bool|null
      */
     public function before(User $user)
     {
@@ -23,15 +23,16 @@ class SettingPolicy
         if (!$user->isTypeOf(UserTypes::ADMIN)) {
             return false;
         }
+        return null;
     }
 
     /**
-     * Determine whether the user can view the setting index.
+     * Determine whether the user can view any settings.
      *
-     * @param User $user
-     * @return bool
+     * @param  \App\Models\User  $user
+     * @return mixed
      */
-    public function index(User $user)
+    public function viewAny(User $user)
     {
         return $user->hasAccess("admin.settings.index");
     }

@@ -9,7 +9,7 @@
             <div class="page-header">
                 <h4 class="page-title">{{trans('users')}}</h4>
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="/" class="text-light-color">{{trans('home')}}</a></li>
+                    <li class="breadcrumb-item"><a href="{{ route('admin.home.index') }}" class="text-light-color">{{trans('home')}}</a></li>
                     <li class="breadcrumb-item active" aria-current="page">{{trans('users')}}</li>
                 </ol>
             </div>
@@ -198,7 +198,7 @@
 
 
 
-                                                                @can("index", Address::class)
+                                                                @can("viewAny", Address::class)
                                                                     <a class="dropdown-item has-icon"
                                                                        href="{{ route('admin.user.addresses.index', ['user' => $user->id]) }}"><i
                                                                             class="fa fa-map-marker"></i> {{trans('addresses')}}
@@ -211,7 +211,7 @@
                                                                         class="fa fa-gift"></i> {{trans('points')}}</a>
 
 
-                                                                @can("index", UserDevice::class)
+                                                                @can("viewAny", UserDevice::class)
                                                                     <a class="dropdown-item has-icon"
                                                                        href="{{ route('admin.user.devices.index', ['user' => $user->id]) }}"><i
                                                                             class="fa fa-tablet"></i> {{trans('devices')}}

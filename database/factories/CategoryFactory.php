@@ -1,12 +1,21 @@
 <?php
 
-    use App\Models\Category;
-    use Faker\Generator as Faker;
+namespace Database\Factories;
 
-    $factory->define( Category::class, function (Faker $faker) {
+use App\Models\Category;
+use Illuminate\Database\Eloquent\Factories\Factory;
+
+class CategoryFactory extends Factory
+{
+    protected $model = Category::class;
+
+    public function definition(): array
+    {
+        $faker = $this->faker;
         return [
-            'active' => $faker->boolean,
+            'active' => $faker->boolean(),
             'en'=> ['name' => $faker->city],
             'ar'=> ['name' => $faker->city],
         ];
-    });
+    }
+}

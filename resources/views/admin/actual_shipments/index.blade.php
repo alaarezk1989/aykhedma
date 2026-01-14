@@ -12,7 +12,7 @@
             <div class="page-header">
                 <h4 class="page-title">{{trans('actual_shipments')}}</h4>
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="/" class="text-light-color">{{trans('home')}}</a></li>
+                    <li class="breadcrumb-item"><a href="{{ route('admin.home.index') }}" class="text-light-color">{{trans('home')}}</a></li>
                     <li class="breadcrumb-item active" aria-current="page"><a href="{{ route('admin.actual-shipments.index') }}" class="text-light-color">{{trans('actual_shipments')}}</a></li>
                 </ol>
             </div>
@@ -90,7 +90,7 @@
                                     @if(!request()->get('sub'))
                                         <a href="{{route('admin.actual.shipments.export', array_merge(request()->all(['title'])))}}" class="btn btn-icon"><i class="fa fa-file-excel-o"></i></a>
                                     @endif
-                                    @can("create", ActualShipment::class)
+                                    @can("create", \App\Models\ActualShipment::class)
                                     {{--<a href="{{ route('admin.actual-shipments.create') }}" class="btn btn-icon"><i class="fa fa-plus fa-1x" aria-hidden="true"></i></a>--}}
                                     @endcan
                                 </span>
@@ -150,7 +150,7 @@
                                         @foreach ($list as $data)
                                             <tr id="sh-{{ $data->id }}" onclick="togle(this)">
                                                 <td>{{ $data->id }}</td>
-                                                <td>@if($data->parent_id == null)<a href="{{ route('admin.actual-shipments.index').'?sub='.$data->id }}">{{ $data->title }}</a>@else {{ $data->title }} @endif</td>
+                                                <td>@if($data->parent_id == null)<a href="{{ route('admin.actual-shipments.index', ['sub' => $data->id]) }}">{{ $data->title }}</a>@else {{ $data->title }} @endif</td>
                                                 <td>{{ $data->parent_id == null ? trans("parent"):trans("child") }}</td>
                                                 <td>{{ $data->parent_id }}</td>
                                                 <td>{{ $data->fromAddress?$data->fromAddress->name:'-' }}</td>

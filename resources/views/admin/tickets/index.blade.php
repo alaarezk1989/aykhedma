@@ -7,7 +7,7 @@
             <div class="page-header">
                 <h4 class="page-title">{{ trans('tickets') }}</h4>
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="/" class="text-light-color">{{ trans('home') }}</a></li>
+                    <li class="breadcrumb-item"><a href="{{ route('admin.home.index') }}" class="text-light-color">{{ trans('home') }}</a></li>
                     <li class="breadcrumb-item active" aria-current="page">{{ trans('tickets') }}</li>
                 </ol>
             </div>
@@ -87,7 +87,7 @@
                             <div class="card-header">
                                 <span class="table-add float-right">
                                     <a href="{{route('admin.tickets.export', array_merge(request()->all(['status','assignee','from_date','to_date','filter_by','filteration'])))}}" class="btn btn-icon"><i class="fa fa-file-excel-o"></i></a>
-                                    @can('create', Ticket::class)
+                                    @can('create', \App\Models\Ticket::class)
                                         <a href="{{ route('admin.tickets.create') }}" class="btn btn-icon"><i class="fa fa-plus fa-1x" aria-hidden="true"></i></a>
                                     @endcan
                                 </span>

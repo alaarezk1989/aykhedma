@@ -7,7 +7,7 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateLogsTable extends Migration
 {
-    protected $connection = 'mongodb';
+    // protected $connection = 'mongodb';
     /**
      * Run the migrations.
      *

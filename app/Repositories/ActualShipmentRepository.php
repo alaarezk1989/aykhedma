@@ -6,10 +6,15 @@ use App\Models\ActualShipment;
 use Carbon\Carbon;
 use DB;
 use App\Constants\ActualShipmentStatus;
+use Illuminate\Http\Request;
 
 class ActualShipmentRepository
 {
-    public function searchFromRequest($request)
+    /**
+     * @param Request $request
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function searchFromRequest(Request $request)
     {
         $trips = ActualShipment::orderBy('id', 'DESC');
 
@@ -47,6 +52,12 @@ class ActualShipmentRepository
         return ActualShipment::where('shipment_id', $shipment->id)->where('from_time', $fromDate)->first();
     }
 
+    /**
+     * @param $userAddress
+     * @param $branchId
+     * @param $load
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
     public function getTimeSlots($userAddress, $branchId, $load)
     {
         $nextWeek = new Carbon();

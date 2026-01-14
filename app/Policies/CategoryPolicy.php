@@ -25,7 +25,13 @@ class CategoryPolicy
         }
     }
 
-    public function index(User $user)
+    /**
+     * Determine whether the user can view any categories.
+     *
+     * @param  \App\Models\User  $user
+     * @return mixed
+     */
+    public function viewAny(User $user)
     {
         return $user->hasAccess("admin.categories.index");
     }

@@ -11,6 +11,10 @@ class GroupPolicy
 {
     use HandlesAuthorization;
 
+    /**
+     * @param User $user
+     * @return bool|null
+     */
     public function before(User $user)
     {
         if (!$user->isTypeOf(UserTypes::ADMIN)) {

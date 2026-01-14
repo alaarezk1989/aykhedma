@@ -6,14 +6,16 @@ use App\Constants\UserTypes;
 use App\Events\VendorDeletedEvent;
 use App\Events\VendorEditedEvent;
 use App\Events\VendorCreatedEvent;
-use Dimsav\Translatable\Translatable;
+use Astrotomic\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Vendor extends Model
 {
     use Translatable;
     use SoftDeletes;
+    use HasFactory;
     protected $table = 'vendors';
     public $translatedAttributes = ['name'];
 
@@ -50,7 +52,7 @@ class Vendor extends Model
      */
     public function getNameAttribute()
     {
-        return $this->getTranslationByLocaleKey(app()->getLocale())->name;
+        return optional($this->getTranslationByLocaleKey(app()->getLocale()))->name;
     }
 
     public function admins()

@@ -15,7 +15,7 @@ class SegmentationPolicy
      * Determine whether the user can view the segmentation index.
      *
      * @param User $user
-     * @return bool
+     * @return bool|null
      */
     public function before(User $user)
     {
@@ -23,17 +23,18 @@ class SegmentationPolicy
         if (!$user->isTypeOf(UserTypes::ADMIN)) {
             return false;
         }
+        return null;
     }
 
     /**
-     * Determine whether the user can view the segmentation index.
+     * Determine whether the user can view the unit index.
      *
      * @param User $user
      * @return bool
      */
-    public function index(User $user)
+    public function viewAny(User $user)
     {
-        return $user->hasAccess("admin.segmentation.index");
+        return $user->hasAccess("admin.segmentations.index");
     }
 
     /**

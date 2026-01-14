@@ -6,15 +6,17 @@ use App\Events\CategoryDeletedEvent;
 use App\Events\CategoryEditedEvent;
 use App\Events\CategoryCreatedEvent;
 use Illuminate\Database\Eloquent\Model;
-use Dimsav\Translatable\Translatable;
+use Astrotomic\Translatable\Translatable;
 use Kalnoy\Nestedset\NodeTrait;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Category extends Model
 {
     use NodeTrait;
     use Translatable;
     use SoftDeletes;
+    use HasFactory;
 
     protected $table = 'categories';
     public $translatedAttributes = ['name'];
@@ -25,7 +27,7 @@ class Category extends Model
 
     public function getNameAttribute()
     {
-        return $this->getTranslationByLocaleKey(app()->getLocale())->name;
+        return optional($this->getTranslationByLocaleKey(app()->getLocale()))->name;
     }
 
     public $dispatchesEvents = [

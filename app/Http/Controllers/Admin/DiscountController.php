@@ -6,7 +6,9 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\BaseController;
 use App\Http\Requests\Admin\DiscountRequest;
 use App\Http\Services\DiscountService;
+use App\Models\Company;
 use App\Models\Discount;
+use App\Models\Location;
 use App\Models\Activity;
 use App\Repositories\DiscountRepository;
 use Illuminate\Http\Request;
@@ -28,11 +30,11 @@ class DiscountController extends BaseController
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\View\View
      */
-    public function index(Request $request)
+    public function index()
     {
-        $this->authorize("index", Discount::class);
+        $discount = new Discount;
         $list = $this->discountRepository->searchFromRequest(request());
         $list = $list->paginate(10);
         $list->appends(request()->all());
@@ -42,7 +44,7 @@ class DiscountController extends BaseController
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\View\View
      */
     public function create()
     {
@@ -53,8 +55,8 @@ class DiscountController extends BaseController
     /**
      * Store a newly created resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
+     * @param DiscountRequest $request
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function store(DiscountRequest $request)
     {
@@ -66,8 +68,8 @@ class DiscountController extends BaseController
     /**
      * Show the form for editing the specified resource.
      *
-     * @param \App\Discount $discount
-     * @return \Illuminate\Http\Response
+     * @param Discount $discount
+     * @return \Illuminate\Contracts\View\View
      */
     public function edit(Discount $discount)
     {
@@ -80,7 +82,7 @@ class DiscountController extends BaseController
      *
      * @param DiscountRequest $request
      * @param Discount $discount
-     * @return \Illuminate\Contracts\View\View
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function update(DiscountRequest $request, Discount $discount)
     {
